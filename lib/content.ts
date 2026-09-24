@@ -3,25 +3,25 @@ export const SERVICES = [
     number: "01",
     title: "Website Design & Development",
     description:
-      "Modern responsive websites designed and developed around the client's goals.",
+      "Modern, responsive websites designed and developed around your business goals, audience and brand.",
   },
   {
     number: "02",
     title: "Business Websites",
     description:
-      "Professional websites for companies and organizations that need a strong online presence.",
+      "Professional business websites for Nigerian companies and organizations that need a credible, effective online presence.",
   },
   {
     number: "03",
     title: "E-commerce",
     description:
-      "Online stores designed to present products clearly and support purchasing.",
+      "E-commerce websites that present products clearly and give customers a straightforward path to purchase.",
   },
   {
     number: "04",
     title: "Custom Web Solutions",
     description:
-      "Custom functionality and experiences for requirements outside standard website packages.",
+      "Custom web functionality and integrations for requirements beyond a standard business website.",
   },
 ];
 
@@ -29,22 +29,22 @@ export const SERVICES = [
 export const PROJECTS = [
   {
     title: "Sample Business Website",
-    description: "A professional online presence for a growing company.",
+    description: "A professional business website designed to establish credibility and make it easier for customers to discover the company.",
     tags: "Website Design · Development",
   },
   {
     title: "Sample E-commerce Store",
-    description: "A storefront built to present products and support purchasing.",
+    description: "An e-commerce experience designed to present products clearly and guide customers toward purchase.",
     tags: "Website Design · Development · E-commerce",
   },
   {
     title: "Sample Web App",
-    description: "A custom web experience built around specific business logic.",
+    description: "A custom web experience designed around a specific business workflow and user journey.",
     tags: "Development · Custom Functionality",
   },
   {
     title: "Sample Custom Platform",
-    description: "A tailored platform with integrations beyond a standard site.",
+    description: "A tailored web platform combining custom design, development and integrations.",
     tags: "Design · Development · Custom Integration",
   },
 ];
@@ -152,10 +152,10 @@ export const ABOUT_CONTENT = {
   eyebrow: "ABOUT KAYTECH",
   heading: "A website is only as good as the thinking behind it.",
   intro:
-    "Kaytech Web Solutions is run by a Nigerian designer and developer who builds websites end to end, from the first sketch to the live site.",
+    "Kaytech Web Solutions is a Nigerian web design and development studio building websites end to end, from the first concept to the live site.",
   paragraphs: [
     "I work directly with each business I take on, so there's no handoff between the person who designs the site and the person who builds it. That means the finished website actually matches what was planned, and decisions get made faster.",
-    "Most of the businesses I work with are based in Nigeria, but the process is built to work just as well for clients anywhere. A clear brief, a clear plan, and a website that does its job.",
+    "Kaytech works with businesses in Abuja and across Nigeria, while also supporting clients internationally. The process stays simple: a clear brief, a clear plan, and a website built to do its job.",
     "I care about websites that are simple to use, fast to load, and easy for a business to maintain once it's live. Not everything needs to be complicated to look professional.",
   ],
   values: [

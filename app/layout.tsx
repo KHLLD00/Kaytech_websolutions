@@ -17,7 +17,7 @@ const title = "Kaytech Web Solutions";
 const description =
   "Modern websites and digital solutions built around your business.";
 
-export const metadata: Metadata = {
+export const viewport = { width: "device-width", initialScale: 1 };\n\nexport const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title,
   description,

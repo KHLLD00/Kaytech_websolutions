@@ -225,7 +225,7 @@ export const FAQS = [
   {
     question: "How long does it take to build a website?",
     answer:
-      "Timelines depend on scope, content and functionality. A Starter site typically moves faster than a Professional build with custom features. You'll get a clear estimate after a quick discovery conversation.",
+      "Timelines depend on scope, content and functionality. A straightforward business website typically moves faster than a Professional build with custom features. You'll get a clear estimate after a quick discovery conversation.",
   },
   {
     question: "Which package is right for me?",
@@ -253,11 +253,11 @@ export const FAQS = [
   },
   {
     question: "Do you work with clients outside Nigeria?",
-    answer: "Yes. Kaytech is positioned to work with clients internationally.",
+    answer: "Yes. Kaytech is based in Nigeria and can work with clients in Abuja, elsewhere in Nigeria, and internationally.",
   },
   {
     question: "What happens after I request a quote?",
     answer:
-      "You'll receive a follow-up to confirm scope and requirements, then a clear quote for the right package before any work begins.",
+      "You'll receive a follow-up to confirm your scope and requirements, then a clear quote for the right package before any work begins. You can also review the available packages before requesting a quote.",
   },
 ];

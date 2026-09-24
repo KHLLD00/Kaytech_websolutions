@@ -19,7 +19,7 @@ export default function Navbar() {
 
   return (
     <header className="kaytech-nav-enter fixed inset-x-0 top-4 sm:top-6 z-50 flex justify-center px-4">
-      <div className={`flex w-full max-w-[1120px] items-center justify-between gap-4 rounded-nav border border-[var(--color-border)] bg-[var(--color-surface)]/80 px-4 py-2.5 shadow-[0_8px_24px_-12px_rgba(11,16,32,0.25)] transition-[backdrop-filter,box-shadow,background-color] duration-300 sm:px-6 ${scrolled ? "backdrop-blur-[18px] bg-[var(--color-surface)]/70 shadow-[0_14px_36px_-16px_rgba(11,16,32,0.32)]" : "backdrop-blur-md"}`}>
+      <div className={`flex w-full max-w-[1120px] items-center justify-between gap-4 rounded-nav border border-[var(--color-border)] bg-[var(--color-surface)]/80 px-4 py-2.5 shadow-[0_8px_24px_-12px_rgba(11,16,32,0.25)] transition-[backdrop-filter,box-shadow,background-color] duration-300 sm:px-6 ${scrolled ? "backdrop-blur-[40px] backdrop-saturate-150 bg-[var(--color-surface)]/80 shadow-[0_18px_42px_-16px_rgba(11,16,32,0.38)]" : "backdrop-blur-md"}`}>
         <Link href="/" className="text-h3 font-extrabold tracking-tight">
           Kaytech
         </Link>

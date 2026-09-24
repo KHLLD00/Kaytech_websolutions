@@ -1,17 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 import Button from "@/components/ui/Button";
 import { NAV_LINKS } from "@/lib/constants";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <header className="kaytech-nav-enter fixed inset-x-0 top-4 sm:top-6 z-50 flex justify-center px-4">
-      <div className="flex w-full max-w-[1120px] items-center justify-between gap-4 rounded-nav border border-[var(--color-border)] bg-[var(--color-surface)]/80 px-4 py-2.5 shadow-[0_8px_24px_-12px_rgba(11,16,32,0.25)] backdrop-blur-md sm:px-6">
+      <div className={`flex w-full max-w-[1120px] items-center justify-between gap-4 rounded-nav border border-[var(--color-border)] bg-[var(--color-surface)]/80 px-4 py-2.5 shadow-[0_8px_24px_-12px_rgba(11,16,32,0.25)] transition-[backdrop-filter,box-shadow,background-color] duration-300 sm:px-6 ${scrolled ? "backdrop-blur-2xl bg-[var(--color-surface)]/70 shadow-[0_14px_36px_-16px_rgba(11,16,32,0.32)]" : "backdrop-blur-md"}`}>
         <Link href="/" className="text-h3 font-extrabold tracking-tight">
           Kaytech
         </Link>

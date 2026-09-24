@@ -1,4 +1,4 @@
-export const SITE_URL = "https://kaytechwebsolutions.com"; // PLACEHOLDER: swap once a real domain is registered
+export const SITE_URL = "https://kaytechwebsolutions.vercel.app";
 
 export const NAV_LINKS = [
   { href: "/", label: "Home" },

@@ -13,7 +13,7 @@ export default async function HeroSection() {
 
   return (
     <section className="kaytech-hero relative isolate overflow-hidden">
-      <div aria-hidden="true" className="absolute inset-0 -z-10">
+      <div aria-hidden="true" className="absolute inset-0 z-0">
         <div className="kaytech-hero-mesh absolute inset-0" />
         <div className="kaytech-hero-grid absolute inset-0" />
         <div className="kaytech-hero-glow kaytech-hero-glow-blue absolute left-[18%] top-[18%]" />
@@ -23,7 +23,7 @@ export default async function HeroSection() {
       </div>
 
       <Container>
-        <div className="flex min-h-[calc(100vh-6rem)] items-center justify-center py-20 sm:py-24 lg:min-h-[78vh] lg:py-28">
+        <div className="relative z-10 flex min-h-[calc(100vh-6rem)] items-center justify-center py-20 sm:py-24 lg:min-h-[78vh] lg:py-28">
           <div className="mx-auto w-full max-w-[920px] text-center">
             <p className="text-support font-semibold tracking-[0.16em] text-[var(--color-accent-blue)]">
               {c.eyebrow || "WEB DESIGN & DEVELOPMENT"}

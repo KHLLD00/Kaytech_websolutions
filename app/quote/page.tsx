@@ -5,7 +5,11 @@ import QuoteForm from "@/components/quote/QuoteForm";
 
 export const metadata: Metadata = {
   title: "Get a Free Quote — Kaytech Web Solutions",
-  description: "Tell us about your project and get a clear, straightforward quote.",
+  description:
+    "Tell Kaytech about your website project and get a clear quote for the right package.",
+  alternates: {
+    canonical: "/quote",
+  },
 };
 
 export default function QuotePage() {

@@ -30,12 +30,12 @@ export default async function HeroSection() {
             </p>
 
             <h1 className="text-hero mx-auto mt-5 max-w-[900px] text-balance">
-              {c.heading || "Websites built to move your business forward."}
+              {c.heading || "Modern websites for businesses in Nigeria."}
             </h1>
 
             <p className="text-body mx-auto mt-6 max-w-[680px] text-[var(--color-text-secondary)]">
               {c.description ||
-                "We design and build modern, high-performing websites that help businesses look credible, connect with their audience, and grow online."}
+                "Kaytech Web Solutions designs and develops modern, responsive websites for businesses in Nigeria and beyond, with a focus on clear design, strong user experience, and practical business goals."}
             </p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -48,7 +48,7 @@ export default async function HeroSection() {
             </div>
 
             <p className="text-support mt-6 text-[var(--color-text-secondary)]">
-              {c.supporting_text || "From idea to launch — we handle the digital side."}
+              {c.supporting_text || "Web design and development from idea to launch."}
             </p>
 
             <div aria-hidden="true" className="kaytech-hero-mark mx-auto mt-10 h-px w-24" />

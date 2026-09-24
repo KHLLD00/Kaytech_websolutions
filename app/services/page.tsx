@@ -7,7 +7,10 @@ import { SERVICE_DETAILS } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Services — Kaytech Web Solutions",
   description:
-    "Website design and development, business websites, e-commerce, and custom web solutions.",
+    "Website design and development, business websites, e-commerce, and custom web solutions for businesses in Nigeria and beyond.",
+  alternates: {
+    canonical: "/services",
+  },
 };
 
 export default function ServicesPage() {

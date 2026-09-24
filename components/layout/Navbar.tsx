@@ -10,7 +10,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-4 sm:top-6 z-50 flex justify-center px-4">
+    <header className="kaytech-nav-enter fixed inset-x-0 top-4 sm:top-6 z-50 flex justify-center px-4">
       <div className="flex w-full max-w-[1120px] items-center justify-between gap-4 rounded-nav border border-[var(--color-border)] bg-[var(--color-surface)]/80 px-4 py-2.5 shadow-[0_8px_24px_-12px_rgba(11,16,32,0.25)] backdrop-blur-md sm:px-6">
         <Link href="/" className="text-h3 font-extrabold tracking-tight">
           Kaytech

@@ -4,7 +4,7 @@ import type { ChangeEvent } from "react";
 import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 
-type Tab = "overview" | "hero" | "services" | "packages" | "projects" | "faqs" | "settings";
+type Tab = "overview" | "hero" | "services" | "packages" | "projects" | "testimonials" | "faqs" | "settings";
 type Row = Record<string, any>;
 
 const adminEmail = "usmankhaleed899@gmail.com";
@@ -36,17 +36,19 @@ export default function AdminDashboard() {
   const [packages, setPackages] = useState<Row[]>([]);
   const [projects, setProjects] = useState<Row[]>([]);
   const [faqs, setFaqs] = useState<Row[]>([]);
+  const [testimonials, setTestimonials] = useState<Row[]>([]);
   const [edit, setEdit] = useState<Row | null>(null);
 
   const load = async () => {
     setLoading(true);
-    const [heroRes, settingsRes, servicesRes, packagesRes, projectsRes, faqsRes] = await Promise.all([
+    const [heroRes, settingsRes, servicesRes, packagesRes, projectsRes, faqsRes, testimonialsRes] = await Promise.all([
       supabase.from("site_content").select("content_key,value").eq("section","hero"),
       supabase.from("site_content").select("content_key,value").eq("section","settings"),
       supabase.from("services").select("*").order("display_order"),
       supabase.from("packages").select("*").order("display_order"),
       supabase.from("projects").select("*").order("display_order"),
       supabase.from("faqs").select("*").order("display_order"),
+      supabase.from("testimonials").select("*").order("created_at", { ascending: false }),
     ]);
     setHero(Object.fromEntries((heroRes.data ?? []).map(x => [x.content_key, x.value])));
     setSettings(Object.fromEntries((settingsRes.data ?? []).map(x => [x.content_key, x.value])));
@@ -54,6 +56,7 @@ export default function AdminDashboard() {
     setPackages(packagesRes.data ?? []);
     setProjects(projectsRes.data ?? []);
     setFaqs(faqsRes.data ?? []);
+    setTestimonials(testimonialsRes.data ?? []);
     setLoading(false);
   };
 
@@ -95,7 +98,7 @@ export default function AdminDashboard() {
     return supabase.storage.from(bucket).getPublicUrl(path).data.publicUrl;
   };
 
-  const tabs: [Tab,string][] = [["overview","Overview"],["hero","Hero"],["services","Services"],["packages","Packages"],["projects","Projects"],["faqs","FAQs"],["settings","Site Settings"]];
+  const tabs: [Tab,string][] = [["overview","Overview"],["hero","Hero"],["services","Services"],["packages","Packages"],["projects","Projects"],["testimonials","Testimonials"],["faqs","FAQs"],["settings","Site Settings"]];
 
   if (loading) return <main className="min-h-screen p-8"><div className="mx-auto max-w-6xl">Loading CMS…</div></main>;
 
@@ -113,7 +116,7 @@ export default function AdminDashboard() {
         {message && <div className="mb-5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-3 text-sm">{message}</div>}
         {saving && <div className="mb-5 text-sm text-[var(--color-text-secondary)]">Saving…</div>}
 
-        {tab === "overview" && <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{[["Services",services.length],["Packages",packages.length],["Projects",projects.length],["FAQs",faqs.length]].map(([a,b]) => <button key={String(a)} onClick={() => setTab(String(a).toLowerCase() as Tab)} className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 text-left"><p className="text-sm text-[var(--color-text-secondary)]">{a}</p><p className="mt-2 text-3xl font-bold">{b}</p></button>)}</div>}
+        {tab === "overview" && <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{[["Services",services.length],["Packages",packages.length],["Projects",projects.length],["Testimonials",testimonials.length],["FAQs",faqs.length]].map(([a,b]) => <button key={String(a)} onClick={() => setTab(String(a).toLowerCase() as Tab)} className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 text-left"><p className="text-sm text-[var(--color-text-secondary)]">{a}</p><p className="mt-2 text-3xl font-bold">{b}</p></button>)}</div>}
 
         {tab === "hero" && <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 sm:p-7">
           <h2 className="text-xl font-bold">Hero</h2><div className="mt-6 grid gap-5 md:grid-cols-2">
@@ -128,6 +131,7 @@ export default function AdminDashboard() {
         {tab === "services" && <CrudSection tab="services" rows={services} edit={edit} setEdit={setEdit} saveRow={saveRow} deleteRow={deleteRow} upload={upload} />}
         {tab === "packages" && <CrudSection tab="packages" rows={packages} edit={edit} setEdit={setEdit} saveRow={saveRow} deleteRow={deleteRow} upload={upload} />}
         {tab === "projects" && <CrudSection tab="projects" rows={projects} edit={edit} setEdit={setEdit} saveRow={saveRow} deleteRow={deleteRow} upload={upload} />}
+        {tab === "testimonials" && <TestimonialsAdmin rows={testimonials} projects={projects} reload={load} setMessage={setMessage} />}
         {tab === "faqs" && <CrudSection tab="faqs" rows={faqs} edit={edit} setEdit={setEdit} saveRow={saveRow} deleteRow={deleteRow} upload={upload} />}
 
         {tab === "settings" && <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 sm:p-7">
@@ -167,5 +171,24 @@ function CrudSection({ tab, rows, edit, setEdit, saveRow, deleteRow, upload }: a
       <div className="mt-5 flex gap-2"><button onClick={()=>saveRow(tab,edit)} className="rounded-xl bg-[var(--color-accent-blue)] px-4 py-2 text-sm font-semibold text-white">Save</button><button onClick={()=>setEdit(null)} className="rounded-xl border border-[var(--color-border)] px-4 py-2 text-sm">Cancel</button></div>
     </div>}
     <div className="grid gap-4">{display.map((r:any)=><div key={r.id} className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5"><div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"><div><p className="font-semibold">{r.title||r.name||r.question}</p><p className="mt-1 text-sm text-[var(--color-text-secondary)]">{r.short_description||r.description||r.answer||r.category||""}</p></div><div className="flex gap-2"><button onClick={()=>setEdit({...r})} className="rounded-lg border border-[var(--color-border)] px-3 py-1.5 text-sm">Edit</button><button onClick={()=>deleteRow(tab,r.id)} className="rounded-lg border border-red-500/40 px-3 py-1.5 text-sm">Remove</button></div></div></div>)}</div>
+  </section>;
+}
+
+
+function TestimonialsAdmin({ rows, projects, reload, setMessage }: any) {
+  const supabase = createClient();
+  const [filter, setFilter] = useState("pending");
+  const [edit, setEdit] = useState<Row | null>(null);
+  const update = async (id: string, patch: Row) => { const { error } = await supabase.from("testimonials").update(patch).eq("id", id); setMessage(error ? error.message : "Testimonial updated."); if (!error) { setEdit(null); await reload(); } };
+  const remove = async (id: string) => { if (!confirm("Delete this testimonial permanently?")) return; const { error } = await supabase.from("testimonials").delete().eq("id", id); setMessage(error ? error.message : "Testimonial deleted."); if (!error) await reload(); };
+  const visible = rows.filter((r: Row) => r.status === filter);
+  const projectName = (id: string | null) => projects.find((p: Row) => p.id === id)?.name ?? "No project";
+  return <section className="space-y-5">
+    <div><h2 className="text-xl font-bold">Testimonials</h2><p className="mt-1 text-sm text-[var(--color-text-secondary)]">Review client submissions before they appear on the website.</p></div>
+    <div className="flex gap-2 overflow-x-auto">{["pending","published","rejected"].map((s)=><button key={s} onClick={()=>setFilter(s)} className={"rounded-xl px-4 py-2 text-sm capitalize " + (filter===s ? "bg-[var(--color-accent-blue)] text-white" : "border border-[var(--color-border)]")}>{s} ({rows.filter((r:Row)=>r.status===s).length})</button>)}</div>
+    {visible.map((r: Row) => <article key={r.id} className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5">
+      {edit?.id===r.id ? <div className="space-y-4"><div className="grid gap-4 sm:grid-cols-2"><Field label="Name" value={edit.client_name} onChange={v=>setEdit({...edit,client_name:v})}/><Field label="Company" value={edit.company} onChange={v=>setEdit({...edit,company:v})}/><Field label="Role" value={edit.role ?? ""} onChange={v=>setEdit({...edit,role:v||null})}/><Field label="Rating" type="number" value={String(edit.rating)} onChange={v=>setEdit({...edit,rating:Number(v)})}/></div><Field label="Testimonial" multiline value={edit.content} onChange={v=>setEdit({...edit,content:v})}/><Field label="Photo URL" value={edit.photo_url ?? ""} onChange={v=>setEdit({...edit,photo_url:v||null})}/><label className="block space-y-1.5 text-sm font-medium">Project<select value={edit.project_id ?? ""} onChange={e=>setEdit({...edit,project_id:e.target.value||null})} className="mt-1.5 w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] px-3 py-2.5">{<option value="">No project</option>}{projects.map((p:Row)=><option key={p.id} value={p.id}>{p.name}</option>)}</select></label><div className="flex gap-2"><button onClick={()=>update(r.id,{client_name:edit.client_name,company:edit.company,role:edit.role,content:edit.content,rating:edit.rating,photo_url:edit.photo_url,project_id:edit.project_id})} className="rounded-xl bg-[var(--color-accent-blue)] px-4 py-2 text-sm font-semibold text-white">Save changes</button><button onClick={()=>setEdit(null)} className="rounded-xl border border-[var(--color-border)] px-4 py-2 text-sm">Cancel</button></div></div> : <><div className="flex flex-col gap-4 sm:flex-row sm:justify-between"><div><div className="text-sm tracking-[0.18em] text-[var(--color-accent-blue)]">{"★".repeat(Math.max(0,Math.min(5,r.rating)))}</div><p className="mt-3 text-body">“{r.content}”</p><p className="mt-4 font-semibold">{r.client_name}</p><p className="text-support text-[var(--color-text-secondary)]">{[r.role,r.company].filter(Boolean).join(", ")}</p><p className="mt-2 text-xs text-[var(--color-text-secondary)]">{projectName(r.project_id)}</p></div><div className="flex flex-wrap gap-2">{r.status==="pending" && <button onClick={()=>update(r.id,{status:"published"})} className="rounded-lg bg-[var(--color-accent-blue)] px-3 py-2 text-sm font-semibold text-white">Approve</button>}{r.status==="published" && <button onClick={()=>update(r.id,{status:"pending",featured:false})} className="rounded-lg border border-[var(--color-border)] px-3 py-2 text-sm">Unpublish</button>}{r.status!=="rejected" && <button onClick={()=>update(r.id,{status:"rejected",featured:false})} className="rounded-lg border border-red-500/40 px-3 py-2 text-sm">Reject</button>}{r.status==="rejected" && <button onClick={()=>update(r.id,{status:"pending"})} className="rounded-lg border border-[var(--color-border)] px-3 py-2 text-sm">Restore</button>}<button onClick={()=>setEdit(r)} className="rounded-lg border border-[var(--color-border)] px-3 py-2 text-sm">Edit</button>{r.status==="published" && <button onClick={()=>update(r.id,{featured:!r.featured})} className={"rounded-lg border px-3 py-2 text-sm " + (r.featured ? "border-[var(--color-accent-blue)] text-[var(--color-accent-blue)]" : "border-[var(--color-border)]")}>{r.featured ? "Featured" : "Feature"}</button>}<button onClick={()=>remove(r.id)} className="rounded-lg border border-red-500/40 px-3 py-2 text-sm">Delete</button></div></div></>}
+    </article>)}
+    {!visible.length && <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 text-sm text-[var(--color-text-secondary)]">No {filter} testimonials.</div>}
   </section>;
 }

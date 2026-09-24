@@ -5,7 +5,7 @@ import { PROCESS_STEPS } from "@/lib/content";
 export default function ProcessSection() {
   return (
     <Section>
-      <SectionHeading eyebrow="HOW IT WORKS" heading="From idea to launch, made simple." />
+      <SectionHeading eyebrow="HOW IT WORKS" heading="A straightforward website process, from idea to launch." />
       <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
         {PROCESS_STEPS.map((step) => (
           <div key={step.number}>

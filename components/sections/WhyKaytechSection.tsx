@@ -7,7 +7,7 @@ export default function WhyKaytechSection() {
     <Section>
       <SectionHeading
         eyebrow="WHY KAYTECH"
-        heading="Professional websites. Without the unnecessary complexity."
+        heading="Professional websites, built around what your business needs."
       />
       <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
         {WHY_KAYTECH.map((item) => (

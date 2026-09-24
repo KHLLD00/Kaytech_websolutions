@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: "Kaytech Web Solutions",
     type: "website",
+    images: [{ url: "/opengraph-image" }],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
+    images: ["/opengraph-image"],
   },
 };
 

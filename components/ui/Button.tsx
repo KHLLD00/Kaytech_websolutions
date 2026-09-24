@@ -4,7 +4,7 @@ import { ButtonHTMLAttributes, ReactNode } from "react";
 type Variant = "primary" | "secondary";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-ui px-6 py-3 text-body font-semibold transition-[transform,filter,background-color,border-color] duration-150 min-h-[44px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-blue)]";
+  "inline-flex items-center justify-center gap-2 rounded-ui px-6 py-3 text-body font-semibold kaytech-button-hover transition-[transform,filter,background-color,border-color] duration-150 min-h-[44px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-blue)]";
 
 const variants: Record<Variant, string> = {
   primary:

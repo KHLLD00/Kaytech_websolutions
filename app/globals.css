@@ -121,3 +121,75 @@ body {
     .text-support { font-size: 15px; }
   }
 }
+
+
+@keyframes kaytechOrbitOne {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes kaytechOrbitTwo {
+  from { transform: translate(-50%, -50%) rotate(360deg); }
+  to { transform: translate(-50%, -50%) rotate(0deg); }
+}
+
+@keyframes kaytechOrbitThree {
+  from { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+  50% { transform: translate(-50%, -50%) rotate(180deg) scale(1.04); }
+  to { transform: translate(-50%, -50%) rotate(360deg) scale(1); }
+}
+
+@keyframes kaytechCoreFloat {
+  0%, 100% { transform: translate(-50%, -50%) rotate(-4deg) scale(1); }
+  50% { transform: translate(-50%, -53%) rotate(4deg) scale(1.035); }
+}
+
+@keyframes kaytechGlowPulse {
+  0%, 100% { opacity: .55; transform: translate(-50%, -50%) scale(.9); }
+  50% { opacity: .9; transform: translate(-50%, -50%) scale(1.08); }
+}
+
+.kaytech-hero-visual {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(79,124,255,.08), transparent 48%),
+    linear-gradient(145deg, rgba(16,21,34,.96), rgba(8,11,20,.98));
+  border: 1px solid rgba(79,124,255,.14);
+}
+
+.kaytech-grid {
+  background-image:
+    linear-gradient(rgba(79,124,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79,124,255,.07) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(circle at center, black 25%, transparent 78%);
+}
+
+.kaytech-orbit-one {
+  animation: kaytechOrbitOne 18s linear infinite;
+  transform-origin: center;
+}
+
+.kaytech-orbit-two {
+  animation: kaytechOrbitTwo 23s linear infinite;
+  transform-origin: center;
+}
+
+.kaytech-orbit-three {
+  animation: kaytechOrbitThree 27s linear infinite;
+  transform-origin: center;
+}
+
+.kaytech-core {
+  animation: kaytechCoreFloat 7s ease-in-out infinite;
+}
+
+.kaytech-glow {
+  animation: kaytechGlowPulse 5s ease-in-out infinite;
+}
+
+@media (max-width: 767px) {
+  .kaytech-hero-visual {
+    max-width: 390px;
+    border-radius: 26px;
+  }
+}

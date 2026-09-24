@@ -6,6 +6,5 @@ const routes = ["", "/about", "/services", "/projects", "/pricing", "/quote", "/
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route) => ({
     url: `${SITE_URL}${route}`,
-    lastModified: new Date(),
   }));
 }

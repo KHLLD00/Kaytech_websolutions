@@ -125,7 +125,10 @@ export default function AdminDashboard() {
           </div><button onClick={()=>saveContent("hero",hero)} className="mt-6 rounded-xl bg-[var(--color-accent-blue)] px-5 py-2.5 text-sm font-semibold text-white">Save Hero</button>
         </section>}
 
-        {(["services","packages","projects","faqs"] as const).includes(tab) && <CrudSection tab={tab} rows={{services,packages,projects,faqs}[tab]} edit={edit} setEdit={setEdit} saveRow={saveRow} deleteRow={deleteRow} upload={upload} />}
+        {tab === "services" && <CrudSection tab="services" rows={services} edit={edit} setEdit={setEdit} saveRow={saveRow} deleteRow={deleteRow} upload={upload} />}
+        {tab === "packages" && <CrudSection tab="packages" rows={packages} edit={edit} setEdit={setEdit} saveRow={saveRow} deleteRow={deleteRow} upload={upload} />}
+        {tab === "projects" && <CrudSection tab="projects" rows={projects} edit={edit} setEdit={setEdit} saveRow={saveRow} deleteRow={deleteRow} upload={upload} />}
+        {tab === "faqs" && <CrudSection tab="faqs" rows={faqs} edit={edit} setEdit={setEdit} saveRow={saveRow} deleteRow={deleteRow} upload={upload} />}
 
         {tab === "settings" && <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 sm:p-7">
           <h2 className="text-xl font-bold">Site Settings</h2><p className="mt-1 text-sm text-[var(--color-text-secondary)]">Contact and social details used across the site.</p>

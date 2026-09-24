@@ -8,7 +8,7 @@ export default function IntroSection() {
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center">
         <SectionHeading
           eyebrow="A BETTER DIGITAL PRESENCE"
-          heading="Your business deserves more than just a website."
+          heading="Your website should work as hard as your business."
         />
         <div>
           <p className="text-body text-[var(--color-text-secondary)]">

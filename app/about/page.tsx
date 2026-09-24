@@ -7,7 +7,10 @@ import { ABOUT_CONTENT } from "@/lib/content";
 export const metadata: Metadata = {
   title: "About — Kaytech Web Solutions",
   description:
-    "Kaytech Web Solutions is run by a Nigerian designer and developer who builds websites end to end, for clients in Nigeria and internationally.",
+    "Learn about Kaytech Web Solutions, a Nigerian web design and development studio building modern websites for businesses in Nigeria and beyond.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {

@@ -4,14 +4,6 @@ import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 
-export const metadata = {
-  title: "Admin Login — Kaytech Web Solutions",
-  robots: {
-    index: false,
-    follow: false,
-  },
-};
-
 export default function AdminLoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState("usmankhaleed899@gmail.com");

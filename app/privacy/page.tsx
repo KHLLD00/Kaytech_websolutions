@@ -4,7 +4,11 @@ import { CONTACT } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — Kaytech Web Solutions",
-  description: "How Kaytech Web Solutions handles information collected through this website.",
+  description:
+    "How Kaytech Web Solutions handles information collected through this website.",
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 export default function PrivacyPage() {

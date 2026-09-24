@@ -78,7 +78,6 @@ body {
   }
 }
 
-/* Type scale (section 7 of brief) */
 @layer components {
   .text-hero {
     font-size: 42px;
@@ -122,74 +121,98 @@ body {
   }
 }
 
-
-@keyframes kaytechOrbitOne {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
+@keyframes kaytechHeroDrift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(18px, -14px, 0) scale(1.08); }
 }
 
-@keyframes kaytechOrbitTwo {
-  from { transform: translate(-50%, -50%) rotate(360deg); }
-  to { transform: translate(-50%, -50%) rotate(0deg); }
+@keyframes kaytechHeroDriftReverse {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-22px, 16px, 0) scale(1.06); }
 }
 
-@keyframes kaytechOrbitThree {
-  from { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
-  50% { transform: translate(-50%, -50%) rotate(180deg) scale(1.04); }
-  to { transform: translate(-50%, -50%) rotate(360deg) scale(1); }
+@keyframes kaytechHeroSheen {
+  0%, 100% { opacity: .35; transform: translateX(-2%); }
+  50% { opacity: .7; transform: translateX(2%); }
 }
 
-@keyframes kaytechCoreFloat {
-  0%, 100% { transform: translate(-50%, -50%) rotate(-4deg) scale(1); }
-  50% { transform: translate(-50%, -53%) rotate(4deg) scale(1.035); }
-}
-
-@keyframes kaytechGlowPulse {
-  0%, 100% { opacity: .55; transform: translate(-50%, -50%) scale(.9); }
-  50% { opacity: .9; transform: translate(-50%, -50%) scale(1.08); }
-}
-
-.kaytech-hero-visual {
+.kaytech-hero {
   background:
-    radial-gradient(circle at 50% 50%, rgba(79,124,255,.08), transparent 48%),
-    linear-gradient(145deg, rgba(16,21,34,.96), rgba(8,11,20,.98));
-  border: 1px solid rgba(79,124,255,.14);
+    radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--color-accent-blue) 8%, transparent), transparent 42%),
+    var(--color-bg);
 }
 
-.kaytech-grid {
+.kaytech-hero-mesh {
+  background:
+    radial-gradient(circle at 20% 25%, color-mix(in srgb, var(--color-accent-blue) 12%, transparent), transparent 28%),
+    radial-gradient(circle at 80% 48%, color-mix(in srgb, var(--color-accent-violet) 10%, transparent), transparent 30%),
+    radial-gradient(circle at 50% 90%, color-mix(in srgb, var(--color-accent-cyan) 7%, transparent), transparent 28%);
+}
+
+.kaytech-hero-grid {
   background-image:
-    linear-gradient(rgba(79,124,255,.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(79,124,255,.07) 1px, transparent 1px);
-  background-size: 34px 34px;
-  mask-image: radial-gradient(circle at center, black 25%, transparent 78%);
+    linear-gradient(color-mix(in srgb, var(--color-accent-blue) 9%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-accent-blue) 9%, transparent) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 78%, transparent 100%);
+  opacity: .55;
 }
 
-.kaytech-orbit-one {
-  animation: kaytechOrbitOne 18s linear infinite;
-  transform-origin: center;
+.kaytech-hero-glow {
+  width: 320px;
+  height: 320px;
+  border-radius: 9999px;
+  filter: blur(70px);
+  opacity: .22;
+  pointer-events: none;
+  animation: kaytechHeroDrift 10s ease-in-out infinite;
 }
 
-.kaytech-orbit-two {
-  animation: kaytechOrbitTwo 23s linear infinite;
-  transform-origin: center;
+.kaytech-hero-glow-blue {
+  background: var(--color-accent-blue);
 }
 
-.kaytech-orbit-three {
-  animation: kaytechOrbitThree 27s linear infinite;
-  transform-origin: center;
+.kaytech-hero-glow-violet {
+  background: var(--color-accent-violet);
+  animation-name: kaytechHeroDriftReverse;
+  animation-duration: 13s;
 }
 
-.kaytech-core {
-  animation: kaytechCoreFloat 7s ease-in-out infinite;
+.kaytech-hero-glow-cyan {
+  background: var(--color-accent-cyan);
+  width: 240px;
+  height: 240px;
+  opacity: .14;
+  animation-duration: 15s;
 }
 
-.kaytech-glow {
-  animation: kaytechGlowPulse 5s ease-in-out infinite;
+.kaytech-hero-sheen {
+  background:
+    linear-gradient(120deg, transparent 25%, color-mix(in srgb, var(--color-text-primary) 4%, transparent) 50%, transparent 75%);
+  mask-image: radial-gradient(ellipse at center, black 0%, transparent 72%);
+  animation: kaytechHeroSheen 9s ease-in-out infinite;
+}
+
+.kaytech-hero-mark {
+  background: linear-gradient(90deg, transparent, var(--color-accent-blue), var(--color-accent-violet), transparent);
+  opacity: .6;
 }
 
 @media (max-width: 767px) {
-  .kaytech-hero-visual {
-    max-width: 390px;
-    border-radius: 26px;
+  .kaytech-hero-grid {
+    background-size: 30px 30px;
+    opacity: .4;
+  }
+
+  .kaytech-hero-glow {
+    width: 220px;
+    height: 220px;
+    filter: blur(55px);
+    opacity: .16;
+  }
+
+  .kaytech-hero-glow-cyan {
+    width: 180px;
+    height: 180px;
   }
 }

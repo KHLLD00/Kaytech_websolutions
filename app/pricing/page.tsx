@@ -4,7 +4,11 @@ import AddOnsSection from "@/components/sections/AddOnsSection";
 
 export const metadata: Metadata = {
   title: "Pricing — Kaytech Web Solutions",
-  description: "Simple, transparent pricing for websites of every size.",
+  description:
+    "Explore website packages and straightforward pricing for businesses looking for a professional online presence.",
+  alternates: {
+    canonical: "/pricing",
+  },
 };
 
 export default function PricingPage() {

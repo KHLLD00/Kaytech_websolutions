@@ -4,7 +4,11 @@ import { CONTACT } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions — Kaytech Web Solutions",
-  description: "Terms governing the use of this website and Kaytech Web Solutions' services.",
+  description:
+    "Terms governing the use of this website and Kaytech Web Solutions' services.",
+  alternates: {
+    canonical: "/terms",
+  },
 };
 
 export default function TermsPage() {

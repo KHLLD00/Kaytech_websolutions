@@ -5,6 +5,13 @@ import Button from "@/components/ui/Button";
 import { SERVICE_DETAILS } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
 
+const SERVICE_LINKS = [
+  "/services/website-design-development",
+  "/services/business-websites",
+  "/services/ecommerce",
+  "/services/custom-web-development",
+];
+
 export const metadata = buildMetadata({
   title: "Web Design & Development Services in Nigeria | Kaytech",
   description: "Explore website design, business website, e-commerce and custom web development services for businesses in Abuja and across Nigeria.",
@@ -15,21 +22,34 @@ export default function ServicesPage() {
   return (
     <main>
       <Section className="pt-8 md:pt-12">
-        <SectionHeading eyebrow="WHAT WE DO" heading="Website design and development for Nigerian businesses." description="From a simple business website to a custom web experience, Kaytech builds responsive websites around your goals, audience and brand." level="h1" />
+        <SectionHeading
+          eyebrow="WHAT WE DO"
+          heading="Website design and development services in Nigeria."
+          description="Choose the service that matches your business goal, from a professional company website to an online store or custom web solution."
+          level="h1"
+        />
       </Section>
+
       <Section className="pt-0">
         <div className="flex flex-col divide-y divide-[var(--color-border)] border-t border-[var(--color-border)]">
-          {SERVICE_DETAILS.map((service) => (
+          {SERVICE_DETAILS.map((service, index) => (
             <div key={service.number} className="grid grid-cols-1 gap-6 py-10 md:grid-cols-[100px_1fr_1fr]">
               <span className="text-h2 text-[var(--color-accent-blue)]">{service.number}</span>
               <div>
                 <h2 className="text-h3">{service.title}</h2>
                 <p className="text-body mt-2 text-[var(--color-text-secondary)]">{service.description}</p>
+                <Link
+                  href={SERVICE_LINKS[index]}
+                  className="mt-4 inline-flex text-body font-semibold text-[var(--color-accent-blue)] hover:underline"
+                >
+                  View service details →
+                </Link>
               </div>
               <ul className="flex flex-col gap-2">
                 {service.included.map((item) => (
                   <li key={item} className="text-body flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent-blue)]" />{item}
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent-blue)]" />
+                    {item}
                   </li>
                 ))}
               </ul>
@@ -37,13 +57,18 @@ export default function ServicesPage() {
           ))}
         </div>
       </Section>
+
       <Section className="pt-0">
         <div className="rounded-container border border-[var(--color-border)] bg-[var(--color-surface)] px-8 py-14 text-center">
           <h2 className="text-h1 mx-auto max-w-[520px]">Not sure which service fits?</h2>
-          <p className="text-body mx-auto mt-4 max-w-[420px] text-[var(--color-text-secondary)]">Tell us about your business and we&rsquo;ll recommend the right approach.</p>
+          <p className="text-body mx-auto mt-4 max-w-[420px] text-[var(--color-text-secondary)]">
+            Tell us about your business and we&rsquo;ll recommend the right approach.
+          </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button href="/quote">Get a Free Quote</Button>
-            <Link href="/pricing" className="rounded-button border border-[var(--color-border)] px-5 py-3 font-semibold">View Pricing</Link>
+            <Link href="/pricing" className="rounded-button border border-[var(--color-border)] px-5 py-3 font-semibold">
+              View Pricing
+            </Link>
           </div>
         </div>
       </Section>

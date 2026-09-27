@@ -20,6 +20,7 @@ const description =
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": SITE_URL + "/#organization",
   name: "Kaytech Web Solutions",
   url: SITE_URL,
   description,
@@ -38,22 +39,33 @@ const organizationSchema = {
   sameAs: [CONTACT.twitterUrl],
 };
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": SITE_URL + "/#website",
+  name: "Kaytech Web Solutions",
+  url: SITE_URL,
+  description,
+  inLanguage: "en-NG",
+  publisher: { "@id": SITE_URL + "/#organization" },
+};
+
 export const viewport = { width: "device-width", initialScale: 1 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title,
   description,
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
+  robots: { index: true, follow: true },
   openGraph: {
     title,
     description,
     url: SITE_URL,
     siteName: "Kaytech Web Solutions",
     type: "website",
-    images: [{ url: "/opengraph-image" }],
+    locale: "en_NG",
+    images: [{ url: "/opengraph-image", alt: "Kaytech Web Solutions website preview" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -65,11 +77,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={inter.variable + " h-full antialiased"}
-      suppressHydrationWarning
-    >
+    <html lang="en-NG" className={inter.variable + " h-full antialiased"} suppressHydrationWarning>
       <body className="min-h-full flex flex-col font-sans">
         <ThemeProvider>
           <Navbar />
@@ -77,10 +85,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <Footer />
           <WhatsAppButton />
         </ThemeProvider>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       </body>
     </html>
   );

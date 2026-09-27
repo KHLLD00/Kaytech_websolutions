@@ -9,6 +9,13 @@ export const NAV_LINKS = [
   { href: "/testimonial", label: "Testimonials" },
 ];
 
+export const SERVICE_LINKS = [
+  { href: "/services/website-design-development", label: "Website Design & Development" },
+  { href: "/services/business-websites", label: "Business Websites" },
+  { href: "/services/ecommerce", label: "E-commerce Development" },
+  { href: "/services/custom-web-development", label: "Custom Web Development" },
+];
+
 export const CONTACT = {
   email: "usmankhaleed899@gmail.com",
   whatsappNumber: "2349131013311",

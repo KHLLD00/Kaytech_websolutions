@@ -21,8 +21,14 @@ export default async function ProjectsPage() {
   return (
     <main>
       <Section className="pt-8 md:pt-12">
-        <SectionHeading eyebrow="SELECTED WORK" heading="Good ideas deserve good execution." level="h1" />
+        <SectionHeading
+          eyebrow="SELECTED WORK"
+          heading="Website design and development portfolio."
+          description="Browse selected website concepts and projects. As more completed client work is published, this portfolio can expand into detailed project case studies."
+          level="h1"
+        />
       </Section>
+
       <Section className="pt-0">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
           {rows.map((p: any) => (
@@ -31,7 +37,7 @@ export default async function ProjectsPage() {
                 {p.fallback_image ? <img src={p.fallback_image} alt={p.name} className="absolute inset-0 h-full w-full object-cover" /> : <div className="h-full w-full bg-gradient-to-br from-[#2563EB] to-[#7C3AED] opacity-90" />}
                 {p.live_url && <iframe src={p.live_url} title={p.name} className="absolute inset-0 h-full w-full border-0 bg-[var(--color-surface)]" loading="lazy" />}
               </div>
-              <h3 className="text-h3 mt-4">{p.name}</h3>
+              <h2 className="text-h3 mt-4">{p.name}</h2>
               <p className="text-support mt-1 text-[var(--color-text-secondary)]">{Array.isArray(p.tags) ? p.tags.join(" · ") : p.tags}</p>
               <p className="text-body mt-2 text-[var(--color-text-secondary)]">{p.description}</p>
               {p.live_url && <Button href={p.live_url} variant="secondary" className="mt-4">Visit Website</Button>}
@@ -39,10 +45,11 @@ export default async function ProjectsPage() {
           ))}
         </div>
       </Section>
+
       <Section className="pt-0">
         <div className="rounded-container border border-[var(--color-border)] bg-[var(--color-surface)] px-8 py-14 text-center">
-          <h2 className="text-h1 mx-auto max-w-[520px]">Want your business to be next?</h2>
-          <div className="mt-8 flex justify-center"><Button href="/quote">Get a Free Quote</Button></div>
+          <h2 className="text-h1 mx-auto max-w-[520px]">Want a website for your business?</h2>
+          <div className="mt-8 flex justify-center"><Button href="/quote">Request a Website Quote</Button></div>
         </div>
       </Section>
     </main>

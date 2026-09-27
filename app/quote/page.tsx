@@ -13,7 +13,12 @@ export default function QuotePage() {
   return (
     <main>
       <Section className="pt-8 md:pt-12">
-        <SectionHeading eyebrow="GET A FREE QUOTE" heading="Tell us about your project." description="Fill in a few details and we'll follow up with a clear quote for the right package." level="h1" />
+        <SectionHeading
+          eyebrow="GET A FREE QUOTE"
+          heading="Request a website design or development quote."
+          description="Tell Kaytech about your business, website goals and required functionality so the right approach can be scoped for your project."
+          level="h1"
+        />
         <div className="mt-10 max-w-[640px]"><QuoteForm /></div>
       </Section>
     </main>

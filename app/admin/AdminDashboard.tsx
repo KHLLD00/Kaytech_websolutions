@@ -156,7 +156,7 @@ function CrudSection({ tab, rows, edit, setEdit, saveRow, deleteRow, upload, set
 
   const labels = tab==="services" ? ["number","title","short_description","description","icon","included_items","display_order"]
     : tab==="packages" ? ["name","description","price_ngn","features","display_order"]
-    : tab==="projects" ? ["name","description","category","overview","challenge","solution","role","year","features","process","outcome","tags","live_url","github_url","screenshot","display_order"]
+    : tab==="projects" ? ["name","description","category","overview","challenge","solution","role","year","features","process","outcome","tags","live_url","github_url","display_order"]
     : ["question","answer","display_order"];
 
   const display = rows.filter((r:any)=>r.is_active);
@@ -167,8 +167,34 @@ function CrudSection({ tab, rows, edit, setEdit, saveRow, deleteRow, upload, set
         {labels.map((k:string)=><Field key={k} label={k.replaceAll("_"," ")} value={Array.isArray(edit[k]) ? edit[k].join(", ") : String(edit[k] ?? "")} onChange={(v:string)=>setEdit({...edit,[k]:["included_items","features","process","role","tags"].includes(k)?v.split(",").map(x=>x.trim()).filter(Boolean):["price_ngn","display_order"].includes(k)?Number(v):v})} multiline={["description","short_description","answer"].includes(k)} type={["price_ngn","display_order"].includes(k)?"number":"text"} />)}
         {tab==="packages" && <Toggle label="Featured package" checked={!!edit.is_featured} onChange={v=>setEdit({...edit,is_featured:v})}/>}
         {tab==="projects" && <Toggle label="Featured project" checked={!!edit.featured} onChange={v=>setEdit({...edit,featured:v})}/>}
+        {tab==="projects" && <div className="md:col-span-2 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] p-5">
+          <div className="flex flex-col gap-1">
+            <h3 className="text-base font-semibold">Project Image</h3>
+            <p className="text-sm text-[var(--color-text-secondary)]">Upload the main screenshot that will appear on the project card and case-study page.</p>
+          </div>
+          <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <label className="inline-flex w-fit cursor-pointer items-center rounded-xl bg-[var(--color-accent-blue)] px-4 py-2.5 text-sm font-semibold text-white">
+              {edit.screenshot ? "Replace Project Image" : "Upload Project Image"}
+              <input className="sr-only" type="file" accept="image/png,image/jpeg,image/webp" onChange={async e=>{
+                const file=e.target.files?.[0];
+                if(!file) return;
+                try {
+                  const url=await upload("projects",file);
+                  setEdit({...edit,screenshot:url,fallback_image:url});
+                  setMessage("Project image uploaded. Save the project to keep the change.");
+                } catch(err:any) {
+                  setMessage(err.message);
+                }
+                e.target.value="";
+              }}/>
+            </label>
+            {edit.screenshot && <span className="text-xs text-[var(--color-text-secondary)]">Image uploaded ✓</span>}
+          </div>
+          {edit.screenshot && <div className="mt-4 overflow-hidden rounded-xl border border-[var(--color-border)]">
+            <img src={edit.screenshot} alt="Project screenshot preview" className="max-h-80 w-full object-cover object-top" />
+          </div>}
+        </div>}
         {tab==="projects" && <TechnologyPicker value={edit.technologies ?? []} onChange={(technologies) => setEdit({...edit, technologies})} />}
-        {tab==="projects" && <div className="space-y-4 md:col-span-2"><label className="block text-sm">Upload project screenshot<input className="mt-2 block w-full text-sm" type="file" accept="image/*" onChange={async e=>{if(e.target.files?.[0]){try{const url=await upload("projects",e.target.files[0]);setEdit({...edit,screenshot:url,fallback_image:url})}catch(err:any){setMessage(err.message)}}}}/></label>{edit.screenshot && <div className="overflow-hidden rounded-xl border border-[var(--color-border)]"><img src={edit.screenshot} alt="Project screenshot preview" className="max-h-72 w-full object-cover object-top" /></div>}</div>}
       </div>
       <div className="mt-5 flex gap-2"><button onClick={()=>saveRow(tab,edit)} className="rounded-xl bg-[var(--color-accent-blue)] px-4 py-2 text-sm font-semibold text-white">Save</button><button onClick={()=>setEdit(null)} className="rounded-xl border border-[var(--color-border)] px-4 py-2 text-sm">Cancel</button></div>
     </div>}

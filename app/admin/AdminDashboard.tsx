@@ -151,12 +151,12 @@ function CrudSection({ tab, rows, edit, setEdit, saveRow, deleteRow, upload }: a
     : tab==="packages"
     ? {name:"",description:"",price_ngn:0,features:[],is_featured:false,display_order:rows.length+1,is_active:true}
     : tab==="projects"
-    ? {name:"",description:"",category:"",tags:[],live_url:"",github_url:"",screenshot:"",fallback_image:"",technologies:[],featured:false,display_order:rows.length+1,is_active:true}
+    ? {name:"",description:"",category:"",overview:"",challenge:"",solution:"",role:[],year:"",features:[],process:[],outcome:"",tags:[],live_url:"",github_url:"",screenshot:"",fallback_image:"",technologies:[],featured:false,display_order:rows.length+1,is_active:true}
     : {question:"",answer:"",display_order:rows.length+1,is_active:true};
 
   const labels = tab==="services" ? ["number","title","short_description","description","icon","included_items","display_order"]
     : tab==="packages" ? ["name","description","price_ngn","features","display_order"]
-    : tab==="projects" ? ["name","description","category","tags","live_url","github_url","screenshot","fallback_image","display_order"]
+    : tab==="projects" ? ["name","description","category","overview","challenge","solution","role","year","features","process","outcome","tags","live_url","github_url","screenshot","display_order"]
     : ["question","answer","display_order"];
 
   const display = rows.filter((r:any)=>r.is_active);
@@ -164,11 +164,11 @@ function CrudSection({ tab, rows, edit, setEdit, saveRow, deleteRow, upload }: a
     <div className="flex items-center justify-between"><div><h2 className="text-xl font-bold capitalize">{tab}</h2><p className="text-sm text-[var(--color-text-secondary)]">Create, edit, reorder or remove published items.</p></div><button onClick={()=>setEdit(fresh())} className="rounded-xl bg-[var(--color-accent-blue)] px-4 py-2.5 text-sm font-semibold text-white">Add {tab.slice(0,-1)}</button></div>
     {edit && <div className="rounded-2xl border border-[var(--color-accent-blue)] bg-[var(--color-surface)] p-5">
       <div className="grid gap-5 md:grid-cols-2">
-        {labels.map((k:string)=><Field key={k} label={k.replaceAll("_"," ")} value={Array.isArray(edit[k]) ? edit[k].join(", ") : String(edit[k] ?? "")} onChange={(v:string)=>setEdit({...edit,[k]:["included_items","features","tags"].includes(k)?v.split(",").map(x=>x.trim()).filter(Boolean):["price_ngn","display_order"].includes(k)?Number(v):v})} multiline={["description","short_description","answer"].includes(k)} type={["price_ngn","display_order"].includes(k)?"number":"text"} />)}
+        {labels.map((k:string)=><Field key={k} label={k.replaceAll("_"," ")} value={Array.isArray(edit[k]) ? edit[k].join(", ") : String(edit[k] ?? "")} onChange={(v:string)=>setEdit({...edit,[k]:["included_items","features","process","role","tags"].includes(k)?v.split(",").map(x=>x.trim()).filter(Boolean):["price_ngn","display_order"].includes(k)?Number(v):v})} multiline={["description","short_description","answer"].includes(k)} type={["price_ngn","display_order"].includes(k)?"number":"text"} />)}
         {tab==="packages" && <Toggle label="Featured package" checked={!!edit.is_featured} onChange={v=>setEdit({...edit,is_featured:v})}/>}
         {tab==="projects" && <Toggle label="Featured project" checked={!!edit.featured} onChange={v=>setEdit({...edit,featured:v})}/>}
         {tab==="projects" && <TechnologyPicker value={edit.technologies ?? []} onChange={(technologies) => setEdit({...edit, technologies})} />}
-        {tab==="projects" && <label className="text-sm">Upload fallback image<input className="mt-2 block w-full text-sm" type="file" accept="image/*" onChange={async e=>{if(e.target.files?.[0]){try{const url=await upload("projects",e.target.files[0]);setEdit({...edit,fallback_image:url})}catch(err:any){}}}}/></label>}
+        {tab==="projects" && <div className="space-y-4 md:col-span-2"><label className="block text-sm">Upload project screenshot<input className="mt-2 block w-full text-sm" type="file" accept="image/*" onChange={async e=>{if(e.target.files?.[0]){try{const url=await upload("projects",e.target.files[0]);setEdit({...edit,screenshot:url,fallback_image:url})}catch(err:any){setMessage(err.message)}}}}/></label>{edit.screenshot && <div className="overflow-hidden rounded-xl border border-[var(--color-border)]"><img src={edit.screenshot} alt="Project screenshot preview" className="max-h-72 w-full object-cover object-top" /></div>}</div>}
       </div>
       <div className="mt-5 flex gap-2"><button onClick={()=>saveRow(tab,edit)} className="rounded-xl bg-[var(--color-accent-blue)] px-4 py-2 text-sm font-semibold text-white">Save</button><button onClick={()=>setEdit(null)} className="rounded-xl border border-[var(--color-border)] px-4 py-2 text-sm">Cancel</button></div>
     </div>}

@@ -129,7 +129,7 @@ export default function AdminDashboard() {
           </div><button onClick={()=>saveContent("hero",hero)} className="mt-6 rounded-xl bg-[var(--color-accent-blue)] px-5 py-2.5 text-sm font-semibold text-white">Save Hero</button>
         </section>}
 
-        {tab === "services" && <CrudSection tab="services" rows={services} edit={edit} setEdit={setEdit} saveRow={saveRow} deleteRow={deleteRow} upload={upload} />}
+        {tab === "services" && <CrudSection tab="services" rows={services} edit={edit} setEdit={setEdit} saveRow={saveRow} deleteRow={deleteRow} upload={upload} setMessage={setMessage} />}
         {tab === "packages" && <CrudSection tab="packages" rows={packages} edit={edit} setEdit={setEdit} saveRow={saveRow} deleteRow={deleteRow} upload={upload} />}
         {tab === "projects" && <CrudSection tab="projects" rows={projects} edit={edit} setEdit={setEdit} saveRow={saveRow} deleteRow={deleteRow} upload={upload} />}
         {tab === "testimonials" && <TestimonialsAdmin rows={testimonials} projects={projects} reload={load} setMessage={setMessage} />}
@@ -145,7 +145,7 @@ export default function AdminDashboard() {
   );
 }
 
-function CrudSection({ tab, rows, edit, setEdit, saveRow, deleteRow, upload }: any) {
+function CrudSection({ tab, rows, edit, setEdit, saveRow, deleteRow, upload, setMessage }: any) {
   const fresh = () => tab==="services"
     ? {number:String(rows.length+1).padStart(2,"0"),title:"",short_description:"",description:"",icon:"",included_items:[],display_order:rows.length+1,is_active:true}
     : tab==="packages"

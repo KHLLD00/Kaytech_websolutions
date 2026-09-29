@@ -1,4 +1,4 @@
-import { TECHNOLOGY_OPTIONS } from "@/components/admin/TechnologyPicker";
+import { TECHNOLOGY_OPTIONS } from "@/lib/technologies";
 
 const tools = TECHNOLOGY_OPTIONS.filter((tool) =>
   ["Next.js", "React", "TypeScript", "JavaScript", "Tailwind CSS", "Supabase", "PostgreSQL", "Figma", "Node.js", "Framer Motion", "Vercel", "GitHub"].includes(tool.name)

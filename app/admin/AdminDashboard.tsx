@@ -3,6 +3,7 @@
 import type { ChangeEvent } from "react";
 import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
+import TechnologyPicker from "@/components/admin/TechnologyPicker";
 
 type Tab = "overview" | "hero" | "services" | "packages" | "projects" | "testimonials" | "faqs" | "settings";
 type Row = Record<string, any>;
@@ -150,12 +151,12 @@ function CrudSection({ tab, rows, edit, setEdit, saveRow, deleteRow, upload }: a
     : tab==="packages"
     ? {name:"",description:"",price_ngn:0,features:[],is_featured:false,display_order:rows.length+1,is_active:true}
     : tab==="projects"
-    ? {name:"",description:"",category:"",tags:[],live_url:"",fallback_image:"",featured:false,display_order:rows.length+1,is_active:true}
+    ? {name:"",description:"",category:"",tags:[],live_url:"",github_url:"",screenshot:"",fallback_image:"",technologies:[],featured:false,display_order:rows.length+1,is_active:true}
     : {question:"",answer:"",display_order:rows.length+1,is_active:true};
 
   const labels = tab==="services" ? ["number","title","short_description","description","icon","included_items","display_order"]
     : tab==="packages" ? ["name","description","price_ngn","features","display_order"]
-    : tab==="projects" ? ["name","description","category","tags","live_url","fallback_image","display_order"]
+    : tab==="projects" ? ["name","description","category","tags","live_url","github_url","screenshot","fallback_image","display_order"]
     : ["question","answer","display_order"];
 
   const display = rows.filter((r:any)=>r.is_active);
@@ -166,6 +167,7 @@ function CrudSection({ tab, rows, edit, setEdit, saveRow, deleteRow, upload }: a
         {labels.map((k:string)=><Field key={k} label={k.replaceAll("_"," ")} value={Array.isArray(edit[k]) ? edit[k].join(", ") : String(edit[k] ?? "")} onChange={(v:string)=>setEdit({...edit,[k]:["included_items","features","tags"].includes(k)?v.split(",").map(x=>x.trim()).filter(Boolean):["price_ngn","display_order"].includes(k)?Number(v):v})} multiline={["description","short_description","answer"].includes(k)} type={["price_ngn","display_order"].includes(k)?"number":"text"} />)}
         {tab==="packages" && <Toggle label="Featured package" checked={!!edit.is_featured} onChange={v=>setEdit({...edit,is_featured:v})}/>}
         {tab==="projects" && <Toggle label="Featured project" checked={!!edit.featured} onChange={v=>setEdit({...edit,featured:v})}/>}
+        {tab==="projects" && <TechnologyPicker value={edit.technologies ?? []} onChange={(technologies) => setEdit({...edit, technologies})} />}
         {tab==="projects" && <label className="text-sm">Upload fallback image<input className="mt-2 block w-full text-sm" type="file" accept="image/*" onChange={async e=>{if(e.target.files?.[0]){try{const url=await upload("projects",e.target.files[0]);setEdit({...edit,fallback_image:url})}catch(err:any){}}}}/></label>}
       </div>
       <div className="mt-5 flex gap-2"><button onClick={()=>saveRow(tab,edit)} className="rounded-xl bg-[var(--color-accent-blue)] px-4 py-2 text-sm font-semibold text-white">Save</button><button onClick={()=>setEdit(null)} className="rounded-xl border border-[var(--color-border)] px-4 py-2 text-sm">Cancel</button></div>

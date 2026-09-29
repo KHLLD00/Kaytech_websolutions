@@ -130,10 +130,10 @@ export default function AdminDashboard() {
         </section>}
 
         {tab === "services" && <CrudSection tab="services" rows={services} edit={edit} setEdit={setEdit} saveRow={saveRow} deleteRow={deleteRow} upload={upload} setMessage={setMessage} />}
-        {tab === "packages" && <CrudSection tab="packages" rows={packages} edit={edit} setEdit={setEdit} saveRow={saveRow} deleteRow={deleteRow} upload={upload} />}
-        {tab === "projects" && <CrudSection tab="projects" rows={projects} edit={edit} setEdit={setEdit} saveRow={saveRow} deleteRow={deleteRow} upload={upload} />}
+        {tab === "packages" && <CrudSection tab="packages" rows={packages} edit={edit} setEdit={setEdit} saveRow={saveRow} deleteRow={deleteRow} upload={upload} setMessage={setMessage} />}
+        {tab === "projects" && <CrudSection tab="projects" rows={projects} edit={edit} setEdit={setEdit} saveRow={saveRow} deleteRow={deleteRow} upload={upload} setMessage={setMessage} />}
         {tab === "testimonials" && <TestimonialsAdmin rows={testimonials} projects={projects} reload={load} setMessage={setMessage} />}
-        {tab === "faqs" && <CrudSection tab="faqs" rows={faqs} edit={edit} setEdit={setEdit} saveRow={saveRow} deleteRow={deleteRow} upload={upload} />}
+        {tab === "faqs" && <CrudSection tab="faqs" rows={faqs} edit={edit} setEdit={setEdit} saveRow={saveRow} deleteRow={deleteRow} upload={upload} setMessage={setMessage} />}
 
         {tab === "settings" && <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 sm:p-7">
           <h2 className="text-xl font-bold">Site Settings</h2><p className="mt-1 text-sm text-[var(--color-text-secondary)]">Contact and social details used across the site.</p>

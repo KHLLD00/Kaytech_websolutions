@@ -1,6 +1,7 @@
+import type { ProjectTechnology } from "@/lib/project-types";
 import { TECHNOLOGY_OPTIONS } from "@/lib/technologies";
 
-const tools = TECHNOLOGY_OPTIONS.filter((tool) =>
+const tools: ProjectTechnology[] = TECHNOLOGY_OPTIONS.filter((tool: ProjectTechnology) =>
   ["Next.js", "React", "TypeScript", "JavaScript", "Tailwind CSS", "Supabase", "PostgreSQL", "Figma", "Node.js", "Framer Motion", "Vercel", "GitHub"].includes(tool.name)
 );
 

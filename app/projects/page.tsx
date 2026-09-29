@@ -4,6 +4,7 @@ import Button from "@/components/ui/Button";
 import { createClient } from "@/lib/supabase/server";
 import { PROJECTS } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
+import ProjectCard from "@/components/projects/ProjectCard";
 
 export const metadata = buildMetadata({
   title: "Website Design Portfolio in Nigeria | Kaytech Web Solutions",
@@ -14,9 +15,21 @@ export const metadata = buildMetadata({
 export default async function ProjectsPage() {
   const s = await createClient();
   const { data } = await s.from("projects").select("*").eq("is_active", true).order("display_order");
-  const rows = data?.length ? data : PROJECTS.map((p, i) => ({
-    id: String(i), name: p.title, description: p.description, tags: p.tags.split(" · "), live_url: "", fallback_image: "",
-  }));
+
+  const rows = data?.length
+    ? data
+    : PROJECTS.map((p, i) => ({
+        id: String(i),
+        name: p.title,
+        description: p.description,
+        category: "Website Design & Development",
+        tags: p.tags.split(" · "),
+        live_url: "",
+        fallback_image: "",
+        screenshot: "",
+        slug: "",
+        technologies: [],
+      }));
 
   return (
     <main>
@@ -24,24 +37,15 @@ export default async function ProjectsPage() {
         <SectionHeading
           eyebrow="SELECTED WORK"
           heading="Website design and development portfolio."
-          description="Browse selected website concepts and projects. As more completed client work is published, this portfolio can expand into detailed project case studies."
+          description="Browse selected website concepts and projects. Each project can grow into a detailed case study as more work is published."
           level="h1"
         />
       </Section>
 
       <Section className="pt-0">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
-          {rows.map((p: any) => (
-            <div key={p.id}>
-              <div className="relative aspect-[16/10] overflow-hidden rounded-card border border-[var(--color-border)] bg-[var(--color-surface)]">
-                {p.fallback_image ? <img src={p.fallback_image} alt={p.name} className="absolute inset-0 h-full w-full object-cover" /> : <div className="h-full w-full bg-gradient-to-br from-[#2563EB] to-[#7C3AED] opacity-90" />}
-                {p.live_url && <iframe src={p.live_url} title={p.name} className="absolute inset-0 h-full w-full border-0 bg-[var(--color-surface)]" loading="lazy" />}
-              </div>
-              <h2 className="text-h3 mt-4">{p.name}</h2>
-              <p className="text-support mt-1 text-[var(--color-text-secondary)]">{Array.isArray(p.tags) ? p.tags.join(" · ") : p.tags}</p>
-              <p className="text-body mt-2 text-[var(--color-text-secondary)]">{p.description}</p>
-              {p.live_url && <Button href={p.live_url} variant="secondary" className="mt-4">Visit Website</Button>}
-            </div>
+          {rows.map((project: any) => (
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
       </Section>

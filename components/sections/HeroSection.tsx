@@ -26,7 +26,7 @@ export default async function HeroSection() {
         <div className="relative z-10 flex min-h-[calc(100vh-6rem)] items-center justify-center py-20 sm:py-24 lg:min-h-[78vh] lg:py-28">
           <div className="mx-auto w-full max-w-[920px] text-center">
             <p className="text-support font-semibold tracking-[0.16em] text-[var(--color-accent-blue)]">
-              {c.eyebrow || "WEB DESIGN & DEVELOPMENT"}
+              {c.eyebrow || "WEBSITE DESIGN"}
             </p>
 
             <h1 className="text-hero mx-auto mt-5 max-w-[900px] text-balance">
@@ -35,7 +35,7 @@ export default async function HeroSection() {
 
             <p className="text-body mx-auto mt-6 max-w-[680px] text-[var(--color-text-secondary)]">
               {c.description ||
-                "Kaytech Web Solutions designs and develops modern, responsive websites for businesses in Nigeria and beyond, with a focus on clear design, strong user experience, and practical business goals."}
+                "Kaytech Web Solutions designs modern, responsive websites for businesses in Nigeria and beyond, with a focus on clear design, strong user experience, and practical business goals."}
             </p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -48,7 +48,7 @@ export default async function HeroSection() {
             </div>
 
             <p className="text-support mt-6 text-[var(--color-text-secondary)]">
-              {c.supporting_text || "Web design and development from idea to launch."}
+              {c.supporting_text || "Website design from idea to launch."}
             </p>
 
             <div aria-hidden="true" className="kaytech-hero-mark mx-auto mt-10 h-px w-24" />

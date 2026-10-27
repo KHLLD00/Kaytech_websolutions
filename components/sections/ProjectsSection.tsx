@@ -14,7 +14,7 @@ export default async function ProjectsSection() {
         id: String(i),
         name: p.title,
         description: p.description,
-        category: "Website Design & Development",
+        category: "Website Design",
         tags: p.tags.split(" · "),
         live_url: "",
         fallback_image: "",
@@ -27,7 +27,7 @@ export default async function ProjectsSection() {
     <Section id="projects">
       <SectionHeading
         eyebrow="SELECTED WORK"
-        heading="Websites designed and developed for real businesses."
+        heading="Websites designed for real businesses."
         description="Explore selected work through focused case studies, with a direct link to each live website where available."
       />
       <div className="kaytech-stagger mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2">

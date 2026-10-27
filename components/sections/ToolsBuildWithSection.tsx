@@ -9,14 +9,14 @@ export default function ToolsBuildWithSection() {
   const items = [...tools, ...tools];
 
   return (
-    <section className="overflow-hidden border-y border-[var(--color-border)] py-14 sm:py-16" aria-label="Tools I Build With">
+    <section className="overflow-hidden border-y border-[var(--color-border)] py-14 sm:py-16" aria-label="Tools I Work With">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-xs font-bold tracking-[0.2em] text-[var(--color-accent-blue)]">TOOLS I BUILD WITH</p>
+            <p className="text-xs font-bold tracking-[0.2em] text-[var(--color-accent-blue)]">TOOLS I WORK WITH</p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Modern tools. Thoughtful execution.</h2>
           </div>
-          <p className="max-w-md text-sm leading-6 text-[var(--color-text-secondary)]">A flexible stack for designing, building, launching and maintaining modern websites.</p>
+          <p className="max-w-md text-sm leading-6 text-[var(--color-text-secondary)]">A flexible toolkit for designing, refining and launching modern websites.</p>
         </div>
       </div>
       <div className="relative mt-8 overflow-hidden">

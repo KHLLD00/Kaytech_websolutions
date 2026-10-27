@@ -73,7 +73,7 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
         </div>
       </Section>
 
-      {technologies.length > 0 && <Section><p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-accent-blue)]">Tech Stack</p><h2 className="text-h1 mt-3">Tools used to build it</h2><div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{technologies.map((tech) => <Technology key={tech.name + tech.logo} {...tech} />)}</div></Section>}
+      {technologies.length > 0 && <Section><p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-accent-blue)]">Tech Stack</p><h2 className="text-h1 mt-3">Tools used on this project</h2><div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{technologies.map((tech) => <Technology key={tech.name + tech.logo} {...tech} />)}</div></Section>}
 
       {process.length > 0 && <Section><p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-accent-blue)]">Process</p><h2 className="text-h1 mt-3">From idea to launch</h2><div className="mt-8 grid gap-4 md:grid-cols-2">{process.map((step, index) => <div key={index + "-" + step} className="rounded-card border border-[var(--color-border)] p-6"><span className="text-sm font-semibold text-[var(--color-accent-blue)]">{String(index + 1).padStart(2, "0")}</span><p className="mt-3 text-body">{step}</p></div>)}</div></Section>}
 

@@ -6,15 +6,15 @@ import { SERVICE_DETAILS } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
 
 const SERVICE_LINKS = [
-  "/services/website-design-development",
+  "/services/website-design",
   "/services/business-websites",
   "/services/ecommerce",
-  "/services/custom-web-development",
+  "/services/custom-website-design",
 ];
 
 export const metadata = buildMetadata({
-  title: "Web Design & Development Services in Nigeria | Kaytech",
-  description: "Explore website design, business website, e-commerce and custom web development services for businesses in Abuja and across Nigeria.",
+  title: "Website Design Services in Nigeria | Kaytech",
+  description: "Explore website design, business website, e-commerce and custom website design services for businesses in Abuja and across Nigeria.",
   path: "/services",
 });
 
@@ -24,8 +24,8 @@ export default function ServicesPage() {
       <Section className="pt-8 md:pt-12">
         <SectionHeading
           eyebrow="WHAT WE DO"
-          heading="Website design and development services in Nigeria."
-          description="Choose the service that matches your business goal, from a professional company website to an online store or custom web solution."
+          heading="Website design services in Nigeria."
+          description="Choose the service that matches your business goal, from a professional company website to an online store or custom website design."
           level="h1"
         />
       </Section>

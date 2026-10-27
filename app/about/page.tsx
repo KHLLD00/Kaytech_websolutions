@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
   title: "About Kaytech Web Solutions | Nigerian Web Design Studio",
-  description: "Learn about Kaytech Web Solutions, a Nigerian web design and development studio building modern websites for businesses in Abuja, across Nigeria and beyond.",
+  description: "Learn about Kaytech Web Solutions, a Nigerian web design studio creating modern websites for businesses in Abuja, across Nigeria and beyond.",
   path: "/about",
 });
 

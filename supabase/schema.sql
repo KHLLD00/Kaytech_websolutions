@@ -161,14 +161,14 @@ using ((auth.jwt() ->> 'email') = 'usmankhaleed899@gmail.com')
 with check ((auth.jwt() ->> 'email') = 'usmankhaleed899@gmail.com');
 
 insert into public.site_content (section, content_key, value) values
-('hero', 'eyebrow', 'WEB DESIGN & DEVELOPMENT'),
+('hero', 'eyebrow', 'WEBSITE DESIGN'),
 ('hero', 'heading', 'Websites built to move your business forward.'),
-('hero', 'description', 'We design and build modern, high-performing websites that help businesses look credible, connect with their audience, and grow online.'),
+('hero', 'description', 'We design modern, high-performing websites that help businesses look credible, connect with their audience, and grow online.'),
 ('hero', 'primary_cta_text', 'Get a Free Quote'),
 ('hero', 'primary_cta_link', '/quote'),
 ('hero', 'secondary_cta_text', 'View Our Projects'),
 ('hero', 'secondary_cta_link', '/projects'),
-('hero', 'supporting_text', 'From idea to launch — we handle the digital side.'),
+('hero', 'supporting_text', 'Website design from idea to launch.'),
 ('hero', 'desktop_image', ''),
 ('hero', 'mobile_image', '')
 on conflict (section, content_key) do nothing;
@@ -183,10 +183,10 @@ where not exists (select 1 from public.packages);
 
 insert into public.services (number, title, short_description, description, included_items, display_order)
 select * from (values
-  ('01', 'Website Design & Development', 'Modern responsive websites designed and developed around the client''s goals.', 'Modern responsive websites designed and developed around the client''s goals.', '["Custom design suited to the business","Responsive across desktop, tablet and mobile","Clean, maintainable code"]'::jsonb, 1),
+  ('01', 'Website Design', 'Modern responsive website designs created around the client''s goals.', 'Modern responsive website designs created around the client''s goals.', '["Custom design suited to the business","Responsive across desktop, tablet and mobile","Clear visual hierarchy and consistent styling"]'::jsonb, 1),
   ('02', 'Business Websites', 'Professional websites for companies and organizations that need a strong online presence.', 'Professional websites for companies and organizations that need a strong online presence.', '["Core pages (Home, About, Services, Contact)","Clear presentation of what the business offers","Contact and lead capture"]'::jsonb, 2),
-  ('03', 'E-commerce', 'Online stores designed to present products clearly and support purchasing.', 'Online stores designed to present products clearly and support purchasing.', '["Product listings and detail pages","Cart and checkout flow","Optional payment integration"]'::jsonb, 3),
-  ('04', 'Custom Web Solutions', 'Custom functionality and experiences for requirements outside standard website packages.', 'Custom functionality and experiences for requirements outside standard website packages.', '["Custom features scoped to your requirements","Third-party integrations where applicable","Ongoing support for evolving needs"]'::jsonb, 4)
+  ('03', 'E-commerce', 'Online store designs that present products clearly and support purchasing.', 'Online store designs that present products clearly and support purchasing.', '["Product listings and detail pages","Cart and checkout design","Optional payment integration"]'::jsonb, 3),
+  ('04', 'Custom Website Design', 'Bespoke design and user experience for requirements outside standard website packages.', 'Bespoke design and user experience for requirements outside standard website packages.', '["Custom layouts scoped to your requirements","Tailored user journeys and page structures","Design support for evolving needs"]'::jsonb, 4)
 ) as seed(number, title, short_description, description, included_items, display_order)
 where not exists (select 1 from public.services);
 

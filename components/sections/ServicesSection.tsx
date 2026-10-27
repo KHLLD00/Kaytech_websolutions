@@ -5,10 +5,13 @@ import { createClient } from "@/lib/supabase/server";
 import { SERVICES } from "@/lib/content";
 
 const SERVICE_LINKS: Record<string, string> = {
-  "Website Design & Development": "/services/website-design-development",
+  "Website Design": "/services/website-design",
   "Business Websites": "/services/business-websites",
   "E-commerce": "/services/ecommerce",
-  "Custom Web Solutions": "/services/custom-web-development",
+  "Custom Website Design": "/services/custom-website-design",
+  // Older titles, in case the database still holds them
+  "Website Design & Development": "/services/website-design",
+  "Custom Web Solutions": "/services/custom-website-design",
 };
 
 export default async function ServicesSection() {
@@ -20,8 +23,8 @@ export default async function ServicesSection() {
     <Section id="services">
       <SectionHeading
         eyebrow="WHAT WE DO"
-        heading="Website design and development for Nigerian businesses."
-        description="Explore focused services for business websites, e-commerce stores and custom web development."
+        heading="Website design for Nigerian businesses."
+        description="Explore focused services for business websites, e-commerce stores and custom website design."
       />
       <div className="kaytech-stagger mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
         {rows.map((x: any) => {

@@ -8,7 +8,7 @@ import ProjectCard from "@/components/projects/ProjectCard";
 
 export const metadata = buildMetadata({
   title: "Website Design Portfolio in Nigeria | Kaytech Web Solutions",
-  description: "Explore selected website design and development work from Kaytech Web Solutions, including business websites, e-commerce and custom web experiences.",
+  description: "Explore selected website design work from Kaytech Web Solutions, including business websites, e-commerce and custom website experiences.",
   path: "/projects",
 });
 
@@ -22,7 +22,7 @@ export default async function ProjectsPage() {
         id: String(i),
         name: p.title,
         description: p.description,
-        category: "Website Design & Development",
+        category: "Website Design",
         tags: p.tags.split(" · "),
         live_url: "",
         fallback_image: "",
@@ -36,7 +36,7 @@ export default async function ProjectsPage() {
       <Section className="pt-8 md:pt-12">
         <SectionHeading
           eyebrow="SELECTED WORK"
-          heading="Website design and development portfolio."
+          heading="Website design portfolio."
           description="Browse selected website concepts and projects. Each project can grow into a detailed case study as more work is published."
           level="h1"
         />

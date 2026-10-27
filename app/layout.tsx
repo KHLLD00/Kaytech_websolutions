@@ -13,9 +13,9 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const title = "Website Design & Development in Nigeria | Kaytech Web Solutions";
+const title = "Website Design in Nigeria | Kaytech Web Solutions";
 const description =
-  "Kaytech Web Solutions designs and develops modern, responsive websites for businesses in Nigeria and beyond.";
+  "Kaytech Web Solutions designs modern, responsive websites for businesses in Nigeria and beyond.";
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -31,10 +31,9 @@ const organizationSchema = {
   ],
   serviceType: [
     "Website Design",
-    "Website Development",
     "Business Websites",
-    "E-commerce Development",
-    "Custom Web Solutions",
+    "E-commerce Design",
+    "Custom Website Design",
   ],
   sameAs: [CONTACT.twitterUrl],
 };

@@ -10,10 +10,10 @@ export const NAV_LINKS = [
 ];
 
 export const SERVICE_LINKS = [
-  { href: "/services/website-design-development", label: "Website Design & Development" },
+  { href: "/services/website-design", label: "Website Design" },
   { href: "/services/business-websites", label: "Business Websites" },
-  { href: "/services/ecommerce", label: "E-commerce Development" },
-  { href: "/services/custom-web-development", label: "Custom Web Development" },
+  { href: "/services/ecommerce", label: "E-commerce Design" },
+  { href: "/services/custom-website-design", label: "Custom Website Design" },
 ];
 
 export const CONTACT = {

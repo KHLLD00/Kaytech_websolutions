@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Kaytech Web Solutions — Website Design & Development in Nigeria";
+export const alt = "Kaytech Web Solutions — Website Design in Nigeria";
 export const size = {
   width: 1200,
   height: 630,
@@ -45,7 +45,7 @@ export default function Image() {
             color: "#e1e6f0",
           }}
         >
-          Website Design & Development in Nigeria
+          Website Design in Nigeria
         </div>
       </div>
     ),

@@ -1,9 +1,9 @@
 export const SERVICES = [
   {
     number: "01",
-    title: "Website Design & Development",
+    title: "Website Design",
     description:
-      "Modern, responsive websites designed and developed around your business goals, audience and brand.",
+      "Modern, responsive website designs created around your business goals, audience and brand.",
   },
   {
     number: "02",
@@ -15,13 +15,13 @@ export const SERVICES = [
     number: "03",
     title: "E-commerce",
     description:
-      "E-commerce websites that present products clearly and give customers a straightforward path to purchase.",
+      "E-commerce website designs that present products clearly and give customers a straightforward path to purchase.",
   },
   {
     number: "04",
-    title: "Custom Web Solutions",
+    title: "Custom Website Design",
     description:
-      "Custom web functionality and integrations for requirements beyond a standard business website.",
+      "Bespoke website design and user experience for businesses that need more than a standard template.",
   },
 ];
 
@@ -30,22 +30,22 @@ export const PROJECTS = [
   {
     title: "Sample Business Website",
     description: "A professional business website designed to establish credibility and make it easier for customers to discover the company.",
-    tags: "Website Design · Development",
+    tags: "Website Design",
   },
   {
     title: "Sample E-commerce Store",
     description: "An e-commerce experience designed to present products clearly and guide customers toward purchase.",
-    tags: "Website Design · Development · E-commerce",
+    tags: "Website Design · E-commerce",
   },
   {
     title: "Sample Web App",
     description: "A custom web experience designed around a specific business workflow and user journey.",
-    tags: "Development · Custom Functionality",
+    tags: "UI/UX Design · Custom Experience",
   },
   {
     title: "Sample Custom Platform",
-    description: "A tailored web platform combining custom design, development and integrations.",
-    tags: "Design · Development · Custom Integration",
+    description: "A tailored web platform design shaped around a specific brand, audience and set of user journeys.",
+    tags: "Website Design · Custom Design",
   },
 ];
 
@@ -138,13 +138,13 @@ export const PROCESS_STEPS = [
   },
   {
     number: "03",
-    title: "Build",
-    description: "Develop the website and functionality.",
+    title: "Refine",
+    description: "Review the designs together and polish them until they're right.",
   },
   {
     number: "04",
     title: "Launch",
-    description: "Test, optimize and deploy the finished website.",
+    description: "Finalize the design, hand it over and get the website live.",
   },
 ];
 
@@ -152,16 +152,16 @@ export const ABOUT_CONTENT = {
   eyebrow: "ABOUT KAYTECH",
   heading: "A website is only as good as the thinking behind it.",
   intro:
-    "Kaytech Web Solutions is a Nigerian web design and development studio building websites end to end, from the first concept to the live site.",
+    "Kaytech Web Solutions is a Nigerian web design studio creating websites with a clear purpose, from the first concept to the finished design.",
   paragraphs: [
-    "I work directly with each business I take on, so there's no handoff between the person who designs the site and the person who builds it. That means the finished website actually matches what was planned, and decisions get made faster.",
-    "Kaytech works with businesses in Abuja and across Nigeria, while also supporting clients internationally. The process stays simple: a clear brief, a clear plan, and a website built to do its job.",
+    "I work directly with each business I take on, so there's no handoff between the person who plans the design and the person who delivers it. That means the finished website actually matches what was planned, and decisions get made faster.",
+    "Kaytech works with businesses in Abuja and across Nigeria, while also supporting clients internationally. The process stays simple: a clear brief, a clear plan, and a website designed to do its job.",
     "I care about websites that are simple to use, fast to load, and easy for a business to maintain once it's live. Not everything needs to be complicated to look professional.",
   ],
   values: [
     {
       title: "Direct communication",
-      description: "You're working with the person actually building your website, start to finish.",
+      description: "You're working with the person actually designing your website, start to finish.",
     },
     {
       title: "Practical design",
@@ -169,7 +169,7 @@ export const ABOUT_CONTENT = {
     },
     {
       title: "Built to last",
-      description: "Clean, maintainable websites that hold up well after launch.",
+      description: "Clean, consistent website designs that hold up well after launch.",
     },
   ],
 };
@@ -177,13 +177,13 @@ export const ABOUT_CONTENT = {
 export const SERVICE_DETAILS = [
   {
     number: "01",
-    title: "Website Design & Development",
+    title: "Website Design",
     description:
-      "Modern responsive websites designed and developed around the client's goals.",
+      "Modern responsive website designs created around the client's goals.",
     included: [
       "Custom design suited to the business",
       "Responsive across desktop, tablet and mobile",
-      "Clean, maintainable code",
+      "Clear visual hierarchy and consistent styling",
     ],
   },
   {
@@ -201,36 +201,36 @@ export const SERVICE_DETAILS = [
     number: "03",
     title: "E-commerce",
     description:
-      "Online stores designed to present products clearly and support purchasing.",
+      "Online store designs that present products clearly and support purchasing.",
     included: [
       "Product listings and detail pages",
-      "Cart and checkout flow",
+      "Cart and checkout design",
       "Optional payment integration",
     ],
   },
   {
     number: "04",
-    title: "Custom Web Solutions",
+    title: "Custom Website Design",
     description:
-      "Custom functionality and experiences for requirements outside standard website packages.",
+      "Bespoke design and user experience for requirements outside standard website packages.",
     included: [
-      "Custom features scoped to your requirements",
-      "Third-party integrations where applicable",
-      "Ongoing support for evolving needs",
+      "Custom layouts scoped to your requirements",
+      "Tailored user journeys and page structures",
+      "Design support for evolving needs",
     ],
   },
 ];
 
 export const FAQS = [
   {
-    question: "How long does it take to build a website?",
+    question: "How long does it take to design a website?",
     answer:
-      "Timelines depend on scope, content and functionality. A straightforward business website typically moves faster than a Professional build with custom features. You'll get a clear estimate after a quick discovery conversation.",
+      "Timelines depend on scope, content and functionality. A straightforward business website typically moves faster than a Professional design with custom features. You'll get a clear estimate after a quick discovery conversation.",
   },
   {
     question: "Which package is right for me?",
     answer:
-      "Starter suits a business that needs a clean, credible online presence. Business fits companies that need more pages, lead forms and stronger SEO. Professional is for teams that need custom functionality or integrations beyond a standard site.",
+      "Starter suits a business that needs a clean, credible online presence. Business fits companies that need more pages, lead forms and stronger SEO. Professional is for teams that need a more customized design and user experience beyond a standard site.",
   },
   {
     question: "Can I request features not included in a package?",
@@ -249,7 +249,7 @@ export const FAQS = [
   {
     question: "Can you redesign an existing website?",
     answer:
-      "Yes. Redesigns follow the same process: understanding what's working, what isn't, and rebuilding around clearer goals.",
+      "Yes. Redesigns follow the same process: understanding what's working, what isn't, and redesigning around clearer goals.",
   },
   {
     question: "Do you work with clients outside Nigeria?",

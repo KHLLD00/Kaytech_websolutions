@@ -5,7 +5,7 @@ import Button from "@/components/ui/Button";
 import { waLink } from "@/lib/constants";
 import { buildMailto, buildQuoteMessage, QuoteFormData } from "@/lib/quote";
 
-const WEBSITE_TYPES = ["Business website", "E-commerce", "Custom web app", "Not sure yet"];
+const WEBSITE_TYPES = ["Business website", "E-commerce", "Custom website design", "Not sure yet"];
 const PACKAGES = ["Starter", "Business", "Professional", "Not sure yet"];
 
 const initialData: QuoteFormData = {

@@ -175,9 +175,9 @@ on conflict (section, content_key) do nothing;
 
 insert into public.packages (name, description, price_ngn, features, is_featured, display_order)
 select * from (values
-  ('Starter', 'For businesses that need a professional online presence.', 50000, '["Professional website design","Responsive design","Core website pages","Business/contact information","Social links","Clear visual hierarchy","Design handover"]'::jsonb, false, 1),
-  ('Business', 'For businesses that need a fuller professional website.', 100000, '["Everything in Starter","More pages/content","Enhanced design","Service/product presentation","Contact/lead form design","Social sharing image design","Consistent typography and colour system"]'::jsonb, true, 2),
-  ('Professional', 'For businesses requiring a more advanced or customized design.', 150000, '["Everything in Business","Fully custom design direction","Tailored user journeys","More complex page structures","Enhanced UX","Additional customization"]'::jsonb, false, 3)
+  ('Starter', 'For businesses that need a professional online presence.', 50000, '["Up to 4 pages designed (Home, About, Services, Contact)","Desktop and mobile layouts","Clean layout built on a proven structure","Colours and fonts chosen for your brand","Contact info and social links","1 round of revisions","Design files handover"]'::jsonb, false, 1),
+  ('Business', 'For businesses that need a fuller professional website.', 100000, '["Everything in Starter","Up to 8 pages designed","Desktop, tablet and mobile layouts","Custom visual style that fits your brand","Colour, type and spacing guide","Contact/lead form design","Social sharing image design","2 rounds of revisions"]'::jsonb, true, 2),
+  ('Professional', 'For businesses requiring a more advanced or customized design.', 150000, '["Everything in Business","8+ pages, including complex layouts","Fully custom design direction with moodboard","Full style guide with reusable components","Tailored user journeys","Clickable prototype","3 rounds of revisions","Design files and a short walkthrough"]'::jsonb, false, 3)
 ) as seed(name, description, price_ngn, features, is_featured, display_order)
 where not exists (select 1 from public.packages);
 

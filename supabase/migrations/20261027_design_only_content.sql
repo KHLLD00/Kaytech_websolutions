@@ -37,18 +37,18 @@ where title = 'Custom Web Solutions';
 
 -- Pricing packages: drop development items (deployment, functionality, integrations, SEO setup).
 update public.packages
-set features = '["Professional website design","Responsive design","Core website pages","Business/contact information","Social links","Clear visual hierarchy","Design handover"]'::jsonb
+set features = '["Up to 4 pages designed (Home, About, Services, Contact)","Desktop and mobile layouts","Clean layout built on a proven structure","Colours and fonts chosen for your brand","Contact info and social links","1 round of revisions","Design files handover"]'::jsonb
 where name = 'Starter'
   and features = '["Professional website design","Responsive design","Core website pages","Business/contact information","Social links","Basic SEO foundation","Deployment"]'::jsonb;
 
 update public.packages
-set features = '["Everything in Starter","More pages/content","Enhanced design","Service/product presentation","Contact/lead form design","Social sharing image design","Consistent typography and colour system"]'::jsonb
+set features = '["Everything in Starter","Up to 8 pages designed","Desktop, tablet and mobile layouts","Custom visual style that fits your brand","Colour, type and spacing guide","Contact/lead form design","Social sharing image design","2 rounds of revisions"]'::jsonb
 where name = 'Business'
   and features = '["Everything in Starter","More pages/content","Enhanced design","Service/product presentation","Contact/lead forms","Open Graph/social sharing","Advanced SEO foundation","Additional functionality"]'::jsonb;
 
 update public.packages
 set description = 'For businesses requiring a more advanced or customized design.',
-    features = '["Everything in Business","Fully custom design direction","Tailored user journeys","More complex page structures","Enhanced UX","Additional customization"]'::jsonb
+    features = '["Everything in Business","8+ pages, including complex layouts","Fully custom design direction with moodboard","Full style guide with reusable components","Tailored user journeys","Clickable prototype","3 rounds of revisions","Design files and a short walkthrough"]'::jsonb
 where name = 'Professional'
   and features = '["Everything in Business","Advanced/custom functionality","Custom integrations where applicable","More complex page structures","Enhanced UX","Additional customization"]'::jsonb;
 

@@ -222,7 +222,7 @@ export const FAQS = [
   {
     question: "How long does it take to design a website?",
     answer:
-      "Timelines depend on scope, content and design needs. A straightforward business website typically moves faster than a Professional design with custom features. You'll get a clear estimate after a quick discovery conversation.",
+      "Timelines depend on the number of pages, the design direction and how quickly feedback comes back. A Starter design typically moves faster than a Professional design with a fully custom direction. You'll get a clear estimate after a quick discovery conversation.",
   },
   {
     question: "Which package is right for me?",
@@ -230,18 +230,29 @@ export const FAQS = [
       "Starter suits a business that needs a clean, credible online presence. Business fits companies that need more pages, lead forms and a more polished design. Professional is for teams that need a more customized design and user experience beyond a standard site.",
   },
   {
-    question: "Can I request features not included in a package?",
+    question: "What do I receive at the end?",
     answer:
-      "Yes. Custom requirements can be discussed and scoped separately, so your package stays focused on what your business actually needs.",
+      "You receive the finished design files for your pages. The Professional package also includes a clickable prototype and a short walkthrough of the design.",
   },
   {
-    question: "Do you offer web development or payment integration?",
-    answer: "No. Kaytech focuses on website design: layouts, user experience and visual direction. Development, hosting and payment setup are not part of the packages.",
+    question: "Do you build the website, or handle hosting and payments?",
+    answer:
+      "No. Kaytech focuses on website design: layouts, user experience and visual direction. Development, hosting and payment setup are not part of the packages.",
+  },
+  {
+    question: "How many revisions are included?",
+    answer:
+      "Starter includes 1 round of revisions, Business includes 2 and Professional includes 3. Extra rounds can be discussed if your project needs them.",
+  },
+  {
+    question: "Can I request design work not included in a package?",
+    answer:
+      "Yes. Custom design requirements can be discussed and scoped separately, so your package stays focused on what your business actually needs.",
   },
   {
     question: "Do I need to provide content?",
     answer:
-      "You'll provide the core business details (services, pricing, images if you have them) and Kaytech handles structuring, writing and designing that content into a finished website.",
+      "You'll provide the core business details (services, pricing, images if you have them) and Kaytech handles structuring, writing and designing that content into finished page designs.",
   },
   {
     question: "Can you redesign an existing website?",

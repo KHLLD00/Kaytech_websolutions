@@ -19,7 +19,8 @@ set title = 'Website Design',
     short_description = 'Modern responsive website designs created around the client''s goals.',
     description = 'Modern responsive website designs created around the client''s goals.',
     included_items = '["Custom design suited to the business","Responsive across desktop, tablet and mobile","Clear visual hierarchy and consistent styling"]'::jsonb
-where title = 'Website Design & Development';
+where title in ('Website Design & Development', 'Website Design')
+  and short_description like '%designed and developed%';
 
 update public.services
 set short_description = 'Online store designs that present products clearly and support purchasing.',

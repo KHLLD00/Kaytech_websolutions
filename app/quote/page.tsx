@@ -16,7 +16,7 @@ export default function QuotePage() {
         <SectionHeading
           eyebrow="GET A FREE QUOTE"
           heading="Request a website design quote."
-          description="Tell Kaytech about your business, website goals and required functionality so the right approach can be scoped for your project."
+          description="Tell Kaytech about your business, website goals and design requirements so the right approach can be scoped for your project."
           level="h1"
         />
         <div className="mt-10 max-w-[640px]"><QuoteForm /></div>

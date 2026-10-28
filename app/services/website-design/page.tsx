@@ -19,8 +19,8 @@ export default function WebsiteDesignPage() {
         "Responsive layouts for desktop, tablet and mobile",
         "Clear page structure and user journeys",
         "Consistent typography, colour and visual hierarchy",
-        "Design that supports SEO foundations, depending on scope",
-        "Design support from first concept through launch",
+        "Consistent design system for colour, type and spacing",
+        "Design support from first concept to final handover",
       ]}
       bestFor={[
         "Businesses creating a new website",

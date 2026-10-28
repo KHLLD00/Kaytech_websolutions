@@ -48,7 +48,7 @@ export default async function HeroSection() {
             </div>
 
             <p className="text-support mt-6 text-[var(--color-text-secondary)]">
-              {c.supporting_text || "Website design from idea to launch."}
+              {c.supporting_text || "Website design from first idea to finished design."}
             </p>
 
             <div aria-hidden="true" className="kaytech-hero-mark mx-auto mt-10 h-px w-24" />

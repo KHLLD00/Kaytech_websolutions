@@ -13,14 +13,14 @@ export default function EcommercePage() {
       eyebrow="E-COMMERCE DESIGN"
       heading="E-commerce website design for Nigerian businesses."
       intro="Design an online store that presents products clearly and gives customers a straightforward journey from browsing to purchase."
-      description="Kaytech e-commerce design projects can cover product presentation, store structure and cart and checkout experiences, with payment integration available as an add-on where required."
+      description="Kaytech e-commerce design projects can cover product presentation, store structure and cart and checkout experiences."
       benefits={[
         "Product listing and product detail experiences",
         "Responsive shopping experience across devices",
         "Cart and checkout design",
         "Clear product and category organization",
-        "Payment integration available as an add-on where applicable",
-        "SEO-ready product and store page foundations",
+        "Clear store and category page layouts",
+        "Consistent product page templates",
       ]}
       bestFor={[
         "Retail businesses moving products online",

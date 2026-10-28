@@ -1,6 +1,5 @@
 import HeroSection from "@/components/sections/HeroSection";
 import IntroSection from "@/components/sections/IntroSection";
-import ToolsBuildWithSection from "@/components/sections/ToolsBuildWithSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import TestimonialsSection from "@/components/testimonials/TestimonialsSection";
@@ -19,7 +18,6 @@ export default function Home() {
       <IntroSection />
       <ServicesSection />
       <ProjectsSection />
-      <ToolsBuildWithSection />
       <TestimonialsSection />
       <WhyKaytechSection />
       <PricingSection />

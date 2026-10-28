@@ -18,7 +18,7 @@ export default function PricingPage() {
           <p className="text-support font-semibold tracking-wide text-[var(--color-accent-blue)]">WEBSITE PRICING</p>
           <h1 className="text-h1 mt-3">Website design pricing in Nigeria.</h1>
           <p className="text-body mt-4 text-[var(--color-text-secondary)]">
-            Choose a package based on the type of website and functionality your business needs.
+            Choose a package based on the type of website and design your business needs.
           </p>
         </div>
       </Section>

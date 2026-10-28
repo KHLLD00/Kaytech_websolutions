@@ -168,16 +168,16 @@ insert into public.site_content (section, content_key, value) values
 ('hero', 'primary_cta_link', '/quote'),
 ('hero', 'secondary_cta_text', 'View Our Projects'),
 ('hero', 'secondary_cta_link', '/projects'),
-('hero', 'supporting_text', 'Website design from idea to launch.'),
+('hero', 'supporting_text', 'Website design from first idea to finished design.'),
 ('hero', 'desktop_image', ''),
 ('hero', 'mobile_image', '')
 on conflict (section, content_key) do nothing;
 
 insert into public.packages (name, description, price_ngn, features, is_featured, display_order)
 select * from (values
-  ('Starter', 'For businesses that need a professional online presence.', 50000, '["Professional website design","Responsive design","Core website pages","Business/contact information","Social links","Basic SEO foundation","Deployment"]'::jsonb, false, 1),
-  ('Business', 'For businesses that need a fuller professional website.', 100000, '["Everything in Starter","More pages/content","Enhanced design","Service/product presentation","Contact/lead forms","Open Graph/social sharing","Advanced SEO foundation","Additional functionality"]'::jsonb, true, 2),
-  ('Professional', 'For businesses requiring more advanced or customized experiences.', 150000, '["Everything in Business","Advanced/custom functionality","Custom integrations where applicable","More complex page structures","Enhanced UX","Additional customization"]'::jsonb, false, 3)
+  ('Starter', 'For businesses that need a professional online presence.', 50000, '["Professional website design","Responsive design","Core website pages","Business/contact information","Social links","Clear visual hierarchy","Design handover"]'::jsonb, false, 1),
+  ('Business', 'For businesses that need a fuller professional website.', 100000, '["Everything in Starter","More pages/content","Enhanced design","Service/product presentation","Contact/lead form design","Social sharing image design","Consistent typography and colour system"]'::jsonb, true, 2),
+  ('Professional', 'For businesses requiring a more advanced or customized design.', 150000, '["Everything in Business","Fully custom design direction","Tailored user journeys","More complex page structures","Enhanced UX","Additional customization"]'::jsonb, false, 3)
 ) as seed(name, description, price_ngn, features, is_featured, display_order)
 where not exists (select 1 from public.packages);
 
@@ -185,7 +185,7 @@ insert into public.services (number, title, short_description, description, incl
 select * from (values
   ('01', 'Website Design', 'Modern responsive website designs created around the client''s goals.', 'Modern responsive website designs created around the client''s goals.', '["Custom design suited to the business","Responsive across desktop, tablet and mobile","Clear visual hierarchy and consistent styling"]'::jsonb, 1),
   ('02', 'Business Websites', 'Professional websites for companies and organizations that need a strong online presence.', 'Professional websites for companies and organizations that need a strong online presence.', '["Core pages (Home, About, Services, Contact)","Clear presentation of what the business offers","Contact and lead capture"]'::jsonb, 2),
-  ('03', 'E-commerce', 'Online store designs that present products clearly and support purchasing.', 'Online store designs that present products clearly and support purchasing.', '["Product listings and detail pages","Cart and checkout design","Optional payment integration"]'::jsonb, 3),
+  ('03', 'E-commerce', 'Online store designs that present products clearly and support purchasing.', 'Online store designs that present products clearly and support purchasing.', '["Product listings and detail pages","Cart and checkout design","Clear product and category organization"]'::jsonb, 3),
   ('04', 'Custom Website Design', 'Bespoke design and user experience for requirements outside standard website packages.', 'Bespoke design and user experience for requirements outside standard website packages.', '["Custom layouts scoped to your requirements","Tailored user journeys and page structures","Design support for evolving needs"]'::jsonb, 4)
 ) as seed(number, title, short_description, description, included_items, display_order)
 where not exists (select 1 from public.services);

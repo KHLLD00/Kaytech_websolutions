@@ -67,8 +67,8 @@ export const WHY_KAYTECH = [
     description: "Projects are adapted to the client's actual needs.",
   },
   {
-    title: "From Design to Launch",
-    description: "Kaytech handles the journey from initial concept through deployment.",
+    title: "From Concept to Final Design",
+    description: "Kaytech handles the design journey from the first idea through to the finished design.",
   },
 ];
 
@@ -83,8 +83,8 @@ export const PRICING_PLANS = [
       "Core website pages",
       "Business/contact information",
       "Social links",
-      "Basic SEO foundation",
-      "Deployment",
+      "Clear visual hierarchy",
+      "Design handover",
     ],
     featured: false,
   },
@@ -97,21 +97,20 @@ export const PRICING_PLANS = [
       "More pages/content",
       "Enhanced design",
       "Service/product presentation",
-      "Contact/lead forms",
-      "Open Graph/social sharing",
-      "Advanced SEO foundation",
-      "Additional functionality",
+      "Contact/lead form design",
+      "Social sharing image design",
+      "Consistent typography and colour system",
     ],
     featured: true,
   },
   {
     name: "Professional",
     priceNGN: 150000,
-    description: "For businesses requiring more advanced or customized experiences.",
+    description: "For businesses requiring a more advanced or customized design.",
     features: [
       "Everything in Business",
-      "Advanced/custom functionality",
-      "Custom integrations where applicable",
+      "Fully custom design direction",
+      "Tailored user journeys",
       "More complex page structures",
       "Enhanced UX",
       "Additional customization",
@@ -119,11 +118,6 @@ export const PRICING_PLANS = [
     featured: false,
   },
 ];
-
-export const ADDON = {
-  name: "Payment Integration",
-  priceNGN: 50000,
-};
 
 export const PROCESS_STEPS = [
   {
@@ -143,8 +137,8 @@ export const PROCESS_STEPS = [
   },
   {
     number: "04",
-    title: "Launch",
-    description: "Finalize the design, hand it over and get the website live.",
+    title: "Deliver",
+    description: "Finalize the design and hand it over, ready to use.",
   },
 ];
 
@@ -205,7 +199,7 @@ export const SERVICE_DETAILS = [
     included: [
       "Product listings and detail pages",
       "Cart and checkout design",
-      "Optional payment integration",
+      "Clear product and category organization",
     ],
   },
   {
@@ -225,12 +219,12 @@ export const FAQS = [
   {
     question: "How long does it take to design a website?",
     answer:
-      "Timelines depend on scope, content and functionality. A straightforward business website typically moves faster than a Professional design with custom features. You'll get a clear estimate after a quick discovery conversation.",
+      "Timelines depend on scope, content and design needs. A straightforward business website typically moves faster than a Professional design with custom features. You'll get a clear estimate after a quick discovery conversation.",
   },
   {
     question: "Which package is right for me?",
     answer:
-      "Starter suits a business that needs a clean, credible online presence. Business fits companies that need more pages, lead forms and stronger SEO. Professional is for teams that need a more customized design and user experience beyond a standard site.",
+      "Starter suits a business that needs a clean, credible online presence. Business fits companies that need more pages, lead forms and a more polished design. Professional is for teams that need a more customized design and user experience beyond a standard site.",
   },
   {
     question: "Can I request features not included in a package?",
@@ -238,8 +232,8 @@ export const FAQS = [
       "Yes. Custom requirements can be discussed and scoped separately, so your package stays focused on what your business actually needs.",
   },
   {
-    question: "Do you provide payment integration?",
-    answer: "Yes. Payment integration is available as a +₦50,000 add-on to any package.",
+    question: "Do you offer web development or payment integration?",
+    answer: "No. Kaytech focuses on website design: layouts, user experience and visual direction. Development, hosting and payment setup are not part of the packages.",
   },
   {
     question: "Do I need to provide content?",

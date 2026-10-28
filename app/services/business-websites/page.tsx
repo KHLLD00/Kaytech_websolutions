@@ -20,7 +20,7 @@ export default function BusinessWebsitesPage() {
         "Responsive design across mobile, tablet and desktop",
         "Contact and lead-capture forms where required",
         "Social links and business information",
-        "SEO-ready page structure and metadata",
+        "Clear page structure and visual hierarchy",
       ]}
       bestFor={[
         "Small and growing businesses",

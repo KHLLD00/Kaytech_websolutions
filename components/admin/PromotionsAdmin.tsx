@@ -14,7 +14,7 @@ export default function PromotionsAdmin({ onMessage }: { onMessage: (v: string) 
   const [rows, setRows] = useState<Row[]>([]);
   const [editing, setEditing] = useState<Row | null>(null);
   const [showForm, setShowForm] = useState(false);
-  const [form, setForm] = useState<any>({ name: "", description: "", starts_at: watValue(), ends_at: "2026-12-01T00:00", prices: {} });
+  const [form, setForm] = useState<any>({ name: "", description: "", starts_at: watValue(), ends_at: watValue(new Date(Date.now() + 30 * 86400000).toISOString()), prices: {} });
   const [busy, setBusy] = useState(false);
   const load = async () => {
     const [p, r] = await Promise.all([db.from("packages").select("id,name,price_ngn").eq("is_active", true).order("display_order"), db.from("promotions").select("*,promotion_packages(package_id,promo_price_ngn)").order("created_at", { ascending: false })]);
@@ -22,12 +22,12 @@ export default function PromotionsAdmin({ onMessage }: { onMessage: (v: string) 
     setPackages(p.data ?? []); setRows((r.data ?? []) as Row[]);
   };
   useEffect(() => { void load(); }, []);
-  const openNew = () => { setEditing(null); setShowForm(true); setForm({ name: "", description: "", starts_at: watValue(), ends_at: "2026-12-01T00:00", prices: Object.fromEntries(packages.map(p => [p.id, ""])) }); };
+  const openNew = () => { setEditing(null); setShowForm(true); setForm({ name: "", description: "", starts_at: watValue(), ends_at: watValue(new Date(Date.now() + 30 * 86400000).toISOString()), prices: Object.fromEntries(packages.map(p => [p.id, ""])) }); };
   const openEdit = (row: Row) => { setEditing(row); setShowForm(true); setForm({ name: row.name, description: row.description ?? "", starts_at: watValue(row.starts_at), ends_at: watValue(row.ends_at), prices: Object.fromEntries(packages.map(p => [p.id, String(row.promotion_packages.find(x => x.package_id === p.id)?.promo_price_ngn ?? "")])) }); };
   const save = async (publish: boolean) => {
     if (!form.name.trim() || !form.starts_at || !form.ends_at || new Date(form.ends_at) <= new Date(form.starts_at)) { onMessage("Enter a campaign name and a valid start/end window."); return; }
     const prices = packages.filter(p => form.prices[p.id] !== "" && form.prices[p.id] !== undefined).map(p => ({ package_id: p.id, promo_price_ngn: Number(form.prices[p.id]) }));
-    if (!prices.length || prices.some(p => !Number.isInteger(p.promo_price_ngn) || p.promo_price_ngn < 0)) { onMessage("Enter at least one valid promotional price."); return; }
+    if (!prices.length || prices.some(p => { const regular = packages.find(pkg => pkg.id === p.package_id)?.price_ngn; return !Number.isInteger(p.promo_price_ngn) || p.promo_price_ngn < 0 || p.promo_price_ngn >= regular; })) { onMessage("Each promotional price must be a valid amount below its regular package price."); return; }
     if (publish) { const live = rows.find(r => r.id !== editing?.id && r.status === "published" && new Date(r.starts_at) <= new Date() && new Date(r.ends_at) > new Date()); if (live) { onMessage("Another promotion is currently live. Cancel or let it expire first."); return; } }
     setBusy(true);
     const payload = { name: form.name.trim(), description: form.description.trim(), starts_at: watIso(form.starts_at), ends_at: watIso(form.ends_at), status: publish ? "published" : (editing?.status ?? "draft") };

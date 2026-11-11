@@ -4,8 +4,9 @@ import type { ChangeEvent } from "react";
 import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import TechnologyPicker from "@/components/admin/TechnologyPicker";
+import PromotionsAdmin from "@/components/admin/PromotionsAdmin";
 
-type Tab = "overview" | "hero" | "services" | "packages" | "projects" | "testimonials" | "faqs" | "settings";
+type Tab = "overview" | "hero" | "services" | "packages" | "projects" | "testimonials" | "faqs" | "promotions" | "settings";
 type Row = Record<string, any>;
 
 const adminEmail = "usmankhaleed899@gmail.com";
@@ -99,7 +100,7 @@ export default function AdminDashboard() {
     return supabase.storage.from(bucket).getPublicUrl(path).data.publicUrl;
   };
 
-  const tabs: [Tab,string][] = [["overview","Overview"],["hero","Hero"],["services","Services"],["packages","Packages"],["projects","Projects"],["testimonials","Testimonials"],["faqs","FAQs"],["settings","Site Settings"]];
+  const tabs: [Tab,string][] = [["overview","Overview"],["hero","Hero"],["services","Services"],["packages","Packages"],["projects","Projects"],["testimonials","Testimonials"],["faqs","FAQs"],["promotions","Promotions"],["settings","Site Settings"]];
 
   if (loading) return <main className="min-h-screen p-8"><div className="mx-auto max-w-6xl">Loading CMS…</div></main>;
 
@@ -134,6 +135,8 @@ export default function AdminDashboard() {
         {tab === "projects" && <CrudSection tab="projects" rows={projects} edit={edit} setEdit={setEdit} saveRow={saveRow} deleteRow={deleteRow} upload={upload} setMessage={setMessage} />}
         {tab === "testimonials" && <TestimonialsAdmin rows={testimonials} projects={projects} reload={load} setMessage={setMessage} />}
         {tab === "faqs" && <CrudSection tab="faqs" rows={faqs} edit={edit} setEdit={setEdit} saveRow={saveRow} deleteRow={deleteRow} upload={upload} setMessage={setMessage} />}
+
+        {tab === "promotions" && <PromotionsAdmin onMessage={setMessage} />}
 
         {tab === "settings" && <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 sm:p-7">
           <h2 className="text-xl font-bold">Site Settings</h2><p className="mt-1 text-sm text-[var(--color-text-secondary)]">Contact and social details used across the site.</p>

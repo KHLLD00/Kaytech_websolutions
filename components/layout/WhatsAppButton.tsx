@@ -1,8 +1,16 @@
 "use client";
 
-import Image from "next/image";
 import { FormEvent, KeyboardEvent, useEffect, useRef, useState } from "react";
 import { waLink } from "@/lib/constants";
+
+function MessageIcon({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z" />
+      <path d="M8 12h.01M12 12h.01M16 12h.01" strokeWidth="2.4" />
+    </svg>
+  );
+}
 
 export default function WhatsAppButton() {
   const [open, setOpen] = useState(false);
@@ -47,7 +55,7 @@ export default function WhatsAppButton() {
           <section role="dialog" aria-modal="true" aria-labelledby="project-chat-title" className="flex h-[100dvh] w-full flex-col overflow-hidden bg-[var(--color-surface)] text-[var(--color-text-primary)] shadow-2xl sm:h-[min(620px,calc(100dvh-9rem))] sm:w-[min(400px,calc(100vw-3rem))] sm:rounded-[24px] sm:border sm:border-[var(--color-border)]">
             <header className="flex items-center gap-3 border-b border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-4">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white">
-                <Image src="/whatsapp-icon.svg" alt="" aria-hidden width={24} height={24} className="h-6 w-6" />
+                <MessageIcon className="h-6 w-6" />
               </div>
               <div className="min-w-0 flex-1">
                 <h2 id="project-chat-title" className="font-semibold">Start a project</h2>
@@ -85,7 +93,7 @@ export default function WhatsAppButton() {
       )}
       {!open && (
         <button type="button" onClick={() => setOpen(true)} aria-label="Start a project chat" className="fixed bottom-5 right-5 z-50 flex h-14 items-center gap-2 rounded-full bg-[#25D366] px-5 text-sm font-semibold text-white shadow-[0_10px_28px_-8px_rgba(0,0,0,0.4)] transition-transform hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#25D366]" style={{ bottom: "max(1.25rem, env(safe-area-inset-bottom, 0px))", right: "max(1.25rem, env(safe-area-inset-right, 0px))" }}>
-          <Image src="/whatsapp-icon.svg" alt="" aria-hidden width={22} height={22} className="h-[22px] w-[22px]" />
+          <MessageIcon className="h-[22px] w-[22px]" />
           Start a project
         </button>
       )}

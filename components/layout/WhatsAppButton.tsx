@@ -92,7 +92,7 @@ export default function WhatsAppButton() {
         </div>
       )}
       {!open && (
-        <button type="button" onClick={() => setOpen(true)} aria-label="Start a project chat" className="fixed bottom-5 right-5 z-50 flex h-14 items-center gap-2 rounded-full bg-[#25D366] px-5 text-sm font-semibold text-white shadow-[0_10px_28px_-8px_rgba(0,0,0,0.4)] transition-transform hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#25D366]" style={{ bottom: "max(1.25rem, env(safe-area-inset-bottom, 0px))", right: "max(1.25rem, env(safe-area-inset-right, 0px))" }}>
+        <button type="button" onClick={() => setOpen(true)} aria-label="Start a project chat" className="fixed bottom-5 right-5 z-50 flex h-14 items-center gap-2 rounded-full px-5 text-sm font-semibold text-white shadow-[0_10px_28px_-8px_rgba(37,99,235,0.48)] transition-all hover:-translate-y-1 hover:shadow-[0_14px_34px_-8px_rgba(37,99,235,0.55)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent-blue)]" style={{ background: "linear-gradient(110deg, var(--color-accent-blue), var(--color-accent-violet))", bottom: "max(1.25rem, env(safe-area-inset-bottom, 0px))", right: "max(1.25rem, env(safe-area-inset-right, 0px))" }}>
           <MessageIcon className="h-[22px] w-[22px]" />
           Start a project
         </button>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { FormEvent, KeyboardEvent, useEffect, useRef, useState } from "react";
 import { waLink } from "@/lib/constants";
 
@@ -46,7 +47,7 @@ export default function WhatsAppButton() {
           <section role="dialog" aria-modal="true" aria-labelledby="project-chat-title" className="flex h-[100dvh] w-full flex-col overflow-hidden bg-[var(--color-surface)] text-[var(--color-text-primary)] shadow-2xl sm:h-[min(620px,calc(100dvh-9rem))] sm:w-[min(400px,calc(100vw-3rem))] sm:rounded-[24px] sm:border sm:border-[var(--color-border)]">
             <header className="flex items-center gap-3 border-b border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-4">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.36a9.9 9.9 0 0 0 4.62 1.14c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm5.78 14.03c-.24.68-1.38 1.3-1.9 1.35-.5.06-1.03.28-3.42-.72-2.9-1.21-4.75-4.16-4.9-4.36-.14-.2-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.38.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.82 2 .89 2.14.07.14.11.3.02.49-.09.19-.14.3-.28.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.82.86.27.14.45.2.51.32.07.12.07.68-.17 1.35Z" /></svg>
+                <Image src="/whatsapp-icon.svg" alt="" aria-hidden width={24} height={24} className="h-6 w-6" />
               </div>
               <div className="min-w-0 flex-1">
                 <h2 id="project-chat-title" className="font-semibold">Start a project</h2>
@@ -84,7 +85,7 @@ export default function WhatsAppButton() {
       )}
       {!open && (
         <button type="button" onClick={() => setOpen(true)} aria-label="Start a project chat" className="fixed bottom-5 right-5 z-50 flex h-14 items-center gap-2 rounded-full bg-[#25D366] px-5 text-sm font-semibold text-white shadow-[0_10px_28px_-8px_rgba(0,0,0,0.4)] transition-transform hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#25D366]" style={{ bottom: "max(1.25rem, env(safe-area-inset-bottom, 0px))", right: "max(1.25rem, env(safe-area-inset-right, 0px))" }}>
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.36a9.9 9.9 0 0 0 4.62 1.14c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm5.78 14.03c-.24.68-1.38 1.3-1.9 1.35-.5.06-1.03.28-3.42-.72-2.9-1.21-4.75-4.16-4.9-4.36-.14-.2-1.16-1.55-1.16-2.95 0-1.4.73-2.09 1-2.38.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.82 2 .89 2.14.07.14.11.3.02.49-.09.19-.14.3-.28.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.82.86.27.14.45.2.51.32.07.12.07.68-.17 1.35Z" /></svg>
+          <Image src="/whatsapp-icon.svg" alt="" aria-hidden width={22} height={22} className="h-[22px] w-[22px]" />
           Start a project
         </button>
       )}
